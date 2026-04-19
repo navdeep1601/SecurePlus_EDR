@@ -1,0 +1,41 @@
+# SecurePulse EDR - Main Configuration
+system:
+  name: "SecurePulse EDR"
+  version: "1.0.0"
+  log_dir: "vigilcore/logs"
+  alert_log: "vigilcore/logs/alerts.json"
+  scan_interval: 10        # seconds between scans
+  debug: false
+
+monitoring:
+  process:
+    enabled: true
+    interval: 5
+  file:
+    enabled: true
+    watch_paths:
+      - "/tmp"
+      - "/home"
+      - "/var/www"
+    interval: 2
+  network:
+    enabled: true
+    interval: 10
+  port_scanner:
+    enabled: true
+    target: "127.0.0.1"
+    port_range: [1, 10000]
+    interval: 60
+  log_analyzer:
+    enabled: true
+    log_files:
+      - "/var/log/auth.log"
+      - "/var/log/apache2/access.log"
+      - "/var/log/syslog"
+    interval: 30
+
+dashboard:
+  enabled: true
+  host: "0.0.0.0"
+  port: 5000
+  debug: false

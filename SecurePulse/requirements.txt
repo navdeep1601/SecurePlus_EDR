@@ -1,0 +1,7 @@
+psutil>=5.9.0
+watchdog>=3.0.0
+PyYAML>=6.0
+Flask>=2.3.0
+colorama>=0.4.6
+rich>=13.0.0          # Optional: enhanced CLI output (falls back to plain text)
+requests>=2.28.0      # Optional: future threat intel features

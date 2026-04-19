@@ -1,0 +1,137 @@
+2026-03-18 15:19:55,704 [INFO] SecurePulse: SecurePulse EDR — DEMO mode (synthetic events)
+2026-03-18 15:19:55,743 [INFO] DetectionEngine: DetectionEngine initialised — rules loaded from /home/claude/SecurePulse/vigilcore/config/detection_rules.yaml
+2026-03-18 15:19:56,245 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 15:19:56,246 [WARNING] AlertManager: [HIGH] Suspicious Port Activity | Rule: NET-001 | Score: 85 | Detects connections on known malicious/backdoor ports
+2026-03-18 15:19:56,247 [WARNING] AlertManager: [CRITICAL] Ransomware Behavior | Rule: FILE-001 | Score: 95 | Rapid mass file modifications/creations
+2026-03-18 15:19:56,248 [WARNING] AlertManager: [CRITICAL] Ransomware Behavior | Rule: FILE-001 | Score: 97 | Rapid mass file modification detected — 35 files in 8.0s
+2026-03-18 15:19:56,248 [WARNING] AlertManager: [MEDIUM] Script Dropper Detection | Rule: FILE-003 | Score: 65 | Executable or script created in temp directory
+2026-03-18 15:19:56,249 [WARNING] AlertManager: [HIGH] Sensitive File Access | Rule: FILE-002 | Score: 80 | Access to sensitive system files
+2026-03-18 15:19:56,250 [WARNING] AlertManager: [MEDIUM] Unexpected Open Port | Rule: PORT-001 | Score: 50 | Port open that is not in the whitelist
+2026-03-18 15:19:56,251 [WARNING] AlertManager: [MEDIUM] Unexpected Open Port | Rule: PORT-001 | Score: 50 | Port open that is not in the whitelist
+2026-03-18 15:19:56,251 [WARNING] AlertManager: [HIGH] SQL Injection Attempt | Rule: LOG-001 | Score: 80 | Detects SQL injection patterns in logs
+2026-03-18 15:19:56,252 [WARNING] AlertManager: [MEDIUM] XSS Attempt | Rule: LOG-002 | Score: 65 | Detects Cross-Site Scripting patterns
+2026-03-18 15:19:56,253 [WARNING] AlertManager: [HIGH] Brute Force Attack | Rule: LOG-003 | Score: 75 | Brute-force detected: 6 failed logins from 203.0.113.45
+2026-03-18 15:19:56,253 [WARNING] AlertManager: [MEDIUM] Crypto Miner Detection | Rule: PROC-005 | Score: 70 | Detects cryptocurrency mining activity
+2026-03-18 15:19:56,254 [INFO] SecurePulse: Demo complete. Alerts saved to: vigilcore/logs/alerts.json
+2026-03-18 15:19:56,254 [INFO] SecurePulse: Run 'python main.py dashboard' to view in the web UI.
+2026-03-18 15:20:02,355 [INFO] DetectionEngine: DetectionEngine initialised — rules loaded from /home/claude/SecurePulse/vigilcore/config/detection_rules.yaml
+2026-03-18 15:20:02,357 [WARNING] AlertManager: [HIGH] Brute Force Attack | Rule: LOG-003 | Score: 75 | Brute-force detected: 5 failed logins from 203.0.113.45
+2026-03-18 15:20:02,357 [INFO] LogAnalyzer: LogAnalyzer: sample_auth.log — 10 new line(s), 1 alert(s)
+2026-03-18 15:20:02,358 [WARNING] AlertManager: [HIGH] SQL Injection Attempt | Rule: LOG-001 | Score: 80 | Detects SQL injection patterns in logs
+2026-03-18 15:20:02,359 [WARNING] AlertManager: [MEDIUM] XSS Attempt | Rule: LOG-002 | Score: 65 | Detects Cross-Site Scripting patterns
+2026-03-18 15:20:02,360 [WARNING] AlertManager: [HIGH] Directory Traversal | Rule: LOG-004 | Score: 75 | Detects path traversal attempts
+2026-03-18 15:20:02,360 [WARNING] AlertManager: [HIGH] SQL Injection Attempt | Rule: LOG-001 | Score: 80 | Detects SQL injection patterns in logs
+2026-03-18 15:20:02,372 [WARNING] AlertManager: [HIGH] SQL Injection Attempt | Rule: LOG-001 | Score: 80 | Detects SQL injection patterns in logs
+2026-03-18 15:20:02,373 [INFO] LogAnalyzer: LogAnalyzer: sample_apache.log — 8 new line(s), 5 alert(s)
+2026-03-18 15:20:18,482 [INFO] DetectionEngine: DetectionEngine initialised — rules loaded from /home/claude/SecurePulse/vigilcore/config/detection_rules.yaml
+2026-03-18 15:20:18,482 [INFO] SecurePulse: SecurePulse EDR — SINGLE PASS scan
+2026-03-18 15:20:18,486 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 15:20:18,488 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 15:20:18,489 [INFO] ProcessMonitor: Process scan complete — 4 processes checked, 2 alerts
+2026-03-18 15:20:18,492 [INFO] PortScanner: PortScanner: scanning 127.0.0.1 ports 1–10000 …
+2026-03-18 15:20:23,460 [INFO] PortScanner: PortScanner: found 1 open port(s) in 5.0s — [2024]
+2026-03-18 20:53:22,395 [INFO] DetectionEngine: DetectionEngine initialised � rules loaded from c:\Users\navde\Downloads\SecurePulse_EDR\SecurePulse\vigilcore\config\detection_rules.yaml
+2026-03-18 20:53:22,409 [INFO] SecurePulse: Starting SecurePulse EDR � FULL mode
+2026-03-18 20:53:22,410 [WARNING] FileMonitor: Watch path does not exist (skipping): /tmp
+2026-03-18 20:53:22,410 [WARNING] FileMonitor: Watch path does not exist (skipping): /home
+2026-03-18 20:53:22,410 [WARNING] FileMonitor: Watch path does not exist (skipping): /var/www
+2026-03-18 20:53:22,411 [INFO] FileMonitor: FileMonitor started � watching 3 path(s)
+2026-03-18 20:53:23,454 [INFO] SecurePulse: Dashboard available at http://localhost:5000
+2026-03-18 20:53:23,454 [INFO] ProcessMonitor: ProcessMonitor started (interval=5s)
+2026-03-18 20:53:23,462 [INFO] NetworkMonitor: NetworkMonitor started (interval=10s)
+2026-03-18 20:53:23,475 [INFO] PortScanner: PortScanner started (interval=60s, range=1-10000)
+2026-03-18 20:53:23,510 [INFO] LogAnalyzer: LogAnalyzer started (interval=30s)
+2026-03-18 20:53:23,511 [INFO] SecurePulse: SecurePulse EDR is RUNNING. Press Ctrl+C to stop.
+2026-03-18 20:53:23,567 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:23,569 [INFO] PortScanner: PortScanner: scanning 127.0.0.1 ports 1�10000 �
+2026-03-18 20:53:23,570 [INFO] ProcessMonitor: New suspicious process detected: PID=1732 name=Code.exe
+2026-03-18 20:53:23,684 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.11:5000
+2026-03-18 20:53:23,686 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2026-03-18 20:53:23,688 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:23,690 [INFO] ProcessMonitor: New suspicious process detected: PID=2628 name=OmenCap.exe
+2026-03-18 20:53:23,817 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:23,819 [INFO] ProcessMonitor: New suspicious process detected: PID=3068 name=Code.exe
+2026-03-18 20:53:23,963 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:23,964 [INFO] ProcessMonitor: New suspicious process detected: PID=3740 name=chrome.exe
+2026-03-18 20:53:24,135 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,136 [INFO] ProcessMonitor: New suspicious process detected: PID=5348 name=msedgewebview2.exe
+2026-03-18 20:53:24,338 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,339 [INFO] ProcessMonitor: New suspicious process detected: PID=5916 name=msedgewebview2.exe
+2026-03-18 20:53:24,410 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,410 [INFO] ProcessMonitor: New suspicious process detected: PID=6152 name=msedgewebview2.exe
+2026-03-18 20:53:24,499 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,499 [INFO] ProcessMonitor: New suspicious process detected: PID=7728 name=chrome.exe
+2026-03-18 20:53:24,558 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,558 [INFO] ProcessMonitor: New suspicious process detected: PID=8876 name=chrome.exe
+2026-03-18 20:53:24,628 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,628 [INFO] ProcessMonitor: New suspicious process detected: PID=9260 name=Code.exe
+2026-03-18 20:53:24,655 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,655 [INFO] ProcessMonitor: New suspicious process detected: PID=9528 name=WidgetBoard.exe
+2026-03-18 20:53:24,695 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,695 [INFO] ProcessMonitor: New suspicious process detected: PID=9972 name=powershell.exe
+2026-03-18 20:53:24,726 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,726 [INFO] ProcessMonitor: New suspicious process detected: PID=10180 name=StartMenuExperienceHost.exe
+2026-03-18 20:53:24,764 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,764 [INFO] ProcessMonitor: New suspicious process detected: PID=10568 name=chrome.exe
+2026-03-18 20:53:24,785 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,785 [INFO] ProcessMonitor: New suspicious process detected: PID=10652 name=Code.exe
+2026-03-18 20:53:24,828 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,828 [INFO] ProcessMonitor: New suspicious process detected: PID=11116 name=chrome.exe
+2026-03-18 20:53:24,851 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,851 [INFO] ProcessMonitor: New suspicious process detected: PID=11276 name=msedgewebview2.exe
+2026-03-18 20:53:24,879 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,879 [INFO] ProcessMonitor: New suspicious process detected: PID=11424 name=chrome.exe
+2026-03-18 20:53:24,902 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,902 [INFO] ProcessMonitor: New suspicious process detected: PID=11540 name=powershell.exe
+2026-03-18 20:53:24,921 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,921 [INFO] ProcessMonitor: New suspicious process detected: PID=11708 name=powershell.exe
+2026-03-18 20:53:24,960 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,960 [INFO] ProcessMonitor: New suspicious process detected: PID=12540 name=Code.exe
+2026-03-18 20:53:24,984 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:24,985 [INFO] ProcessMonitor: New suspicious process detected: PID=12564 name=msedgewebview2.exe
+2026-03-18 20:53:25,038 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,039 [INFO] ProcessMonitor: New suspicious process detected: PID=13356 name=MicrosoftStartFeedProvider.exe
+2026-03-18 20:53:25,071 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,072 [INFO] ProcessMonitor: New suspicious process detected: PID=13608 name=Code.exe
+2026-03-18 20:53:25,096 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,096 [INFO] ProcessMonitor: New suspicious process detected: PID=14064 name=OmenCommandCenterBackground.exe
+2026-03-18 20:53:25,155 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,155 [INFO] ProcessMonitor: New suspicious process detected: PID=14540 name=PhoneExperienceHost.exe
+2026-03-18 20:53:25,191 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,191 [INFO] ProcessMonitor: New suspicious process detected: PID=15412 name=BlueStacksServices.exe
+2026-03-18 20:53:25,221 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,221 [INFO] ProcessMonitor: New suspicious process detected: PID=15520 name=chrome.exe
+2026-03-18 20:53:25,260 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,260 [INFO] ProcessMonitor: New suspicious process detected: PID=15748 name=BlueStacksServices.exe
+2026-03-18 20:53:25,283 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,283 [INFO] ProcessMonitor: New suspicious process detected: PID=15772 name=CodeSetup-stable-ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb.exe
+2026-03-18 20:53:25,304 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,304 [INFO] ProcessMonitor: New suspicious process detected: PID=15776 name=Code.exe
+2026-03-18 20:53:25,338 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,338 [INFO] ProcessMonitor: New suspicious process detected: PID=15908 name=ShellExperienceHost.exe
+2026-03-18 20:53:25,367 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,367 [INFO] ProcessMonitor: New suspicious process detected: PID=16336 name=omenmqtt.exe
+2026-03-18 20:53:25,401 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,401 [INFO] ProcessMonitor: New suspicious process detected: PID=16552 name=Code.exe
+2026-03-18 20:53:25,439 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,439 [INFO] ProcessMonitor: New suspicious process detected: PID=17048 name=chrome.exe
+2026-03-18 20:53:25,457 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,458 [INFO] ProcessMonitor: New suspicious process detected: PID=17320 name=HPSystemEventUtilityBackground.exe
+2026-03-18 20:53:25,478 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:25,478 [INFO] ProcessMonitor: New suspicious process detected: PID=17368 name=CodeSetup-stable-ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb.tmp
+2026-03-18 20:53:36,961 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:36,962 [INFO] ProcessMonitor: New suspicious process detected: PID=6852 name=chrome.exe
+2026-03-18 20:53:37,163 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:37,163 [INFO] ProcessMonitor: New suspicious process detected: PID=10252 name=chrome.exe
+2026-03-18 20:53:37,249 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:37,249 [INFO] ProcessMonitor: New suspicious process detected: PID=13080 name=chrome.exe
+2026-03-18 20:53:42,808 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:53:42,808 [INFO] ProcessMonitor: New suspicious process detected: PID=6908 name=msedgewebview2.exe
+2026-03-18 20:54:11,700 [WARNING] AlertManager: [HIGH] Reverse Shell Detection | Rule: PROC-001 | Score: 90 | Detects common reverse shell tools
+2026-03-18 20:54:11,700 [INFO] ProcessMonitor: New suspicious process detected: PID=8484 name=msedgewebview2.exe
+2026-03-18 20:54:13,004 [INFO] SecurePulse: Shutting down SecurePulse EDR �
+2026-03-18 20:54:13,004 [INFO] FileMonitor: FileMonitor stopped.
+2026-03-18 20:54:13,034 [INFO] SecurePulse: Alert log saved to: vigilcore/logs/alerts.json

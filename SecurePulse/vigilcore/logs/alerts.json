@@ -1,0 +1,800 @@
+[
+  {
+    "alert_id": "2ABB3B56",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:23.559196",
+    "details": {
+      "pid": 1732,
+      "name": "Code.exe",
+      "cmdline": "c:\\users\\navde\\appdata\\local\\programs\\microsoft vs code\\code.exe --type=utility --utility-sub-type=node.mojom.nodeservice --lang=en-us --service-sandbox-type=none --video-capture-use-gpu-memory-buffer --user-data-dir=c:\\users\\navde\\appdata\\roaming\\code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --field-trial-handle=1744,i,8010653115151357189,6903514104737226865,262144 --enable-features=documentpolicyincludejscallstacksincrashreports,earlyestablishgpuchannel,enabletransparenthwndenlargement,establishgpuchannelasync --disable-features=calculatenativewinocclusion,localnetworkaccesschecks,screenaiocrenabled,sparerendererforsiteperprocess,tracesiteinstancegetprocesscreation --variations-seed-version --trace-process-track-uuid=3190708993808206286 --mojo-platform-channel-handle=4028 /prefetch:14",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "236DFFA6",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:23.670626",
+    "details": {
+      "pid": 2628,
+      "name": "OmenCap.exe",
+      "cmdline": "",
+      "username": null,
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "77F37C47",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:23.749879",
+    "details": {
+      "pid": 3068,
+      "name": "Code.exe",
+      "cmdline": "c:\\users\\navde\\appdata\\local\\programs\\microsoft vs code\\code.exe --type=gpu-process --disable-skia-graphite --user-data-dir=c:\\users\\navde\\appdata\\roaming\\code --gpu-preferences=saaaaaaaaadgaaaeaaaaaaaaaaaaagaaaqaaaaaaaaaaaaaaaaaaaaiaaaaaaaaaaaaaaaaaaaaqaaaaaaaaabaaaaaaaaaacaaaaaaaaaaiaaaaaaaaaa== --field-trial-handle=1744,i,8010653115151357189,6903514104737226865,262144 --enable-features=documentpolicyincludejscallstacksincrashreports,earlyestablishgpuchannel,enabletransparenthwndenlargement,establishgpuchannelasync --disable-features=calculatenativewinocclusion,localnetworkaccesschecks,screenaiocrenabled,sparerendererforsiteperprocess,tracesiteinstancegetprocesscreation --variations-seed-version --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1740 /prefetch:2",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "07288968",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:23.929735",
+    "details": {
+      "pid": 3740,
+      "name": "chrome.exe",
+      "cmdline": "c:\\program files\\google\\chrome\\application\\chrome.exe --type=renderer --origin-trial-disabled-features=canvastextng|webassemblycustomdescriptors --no-pre-read-main-dll --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-gb --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=15 --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=63870956 --metrics-shmem-handle=5764,i,1105842613293514361,15971990295122670676,2097152 --field-trial-handle=1848,i,12266373386037920535,9791574286142636316,262144 --variations-seed-version=20260318-010046.043000-production --pseudonymization-salt-handle=1852,i,5871951010126844387,6657139779989304180,4 --trace-process-track-uuid=3190709000367499229 --mojo-platform-channel-handle=6104 /prefetch:1",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "DA6FE3D1",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.113524",
+    "details": {
+      "pid": 5348,
+      "name": "msedgewebview2.exe",
+      "cmdline": "c:\\program files (x86)\\microsoft\\edgewebview\\application\\146.0.3856.62\\msedgewebview2.exe --type=renderer --noerrdialogs --user-data-dir=c:\\users\\navde\\appdata\\local\\packages\\5319275a.whatsappdesktop_cv1g1gvanyjgm\\localcache\\ebwebview --webview-exe-name=whatsapp.root.exe --webview-exe-version=1.0.0 --embedded-browser-webview=1 --subproc-heap-profiling --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-us --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=9 --js-flags=--expose-gc --ms-user-locale=en_in --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=2128110673 --skip-read-main-dll --metrics-shmem-handle=5268,i,14449506336455596409,14003619628625569068,2097152 --field-trial-handle=2016,i,3587767870604717689,11837741964767951554,262144 --variations-seed-version --pseudonymization-salt-handle=2024,i,15657854049034001238,9203003603597186324,4 --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=5232 /pfhostedapp:5ab9449955545dd56ca1a480e7d19e0835efdd82 /prefetch:1",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "0CDBC4CC",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.318378",
+    "details": {
+      "pid": 5916,
+      "name": "msedgewebview2.exe",
+      "cmdline": "c:\\program files (x86)\\microsoft\\edgewebview\\application\\146.0.3856.62\\msedgewebview2.exe --type=renderer --noerrdialogs --user-data-dir=c:\\users\\navde\\appdata\\local\\packages\\5319275a.whatsappdesktop_cv1g1gvanyjgm\\localcache\\ebwebview --webview-exe-name=whatsapp.root.exe --webview-exe-version=1.0.0 --embedded-browser-webview=1 --subproc-heap-profiling --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-us --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=46 --js-flags=--expose-gc --ms-user-locale=en_in --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=3709353225 --ssd-no-pressure-read-main-dll --metrics-shmem-handle=3168,i,5807018118324406188,14992196744406778862,2097152 --field-trial-handle=2016,i,3587767870604717689,11837741964767951554,262144 --variations-seed-version --pseudonymization-salt-handle=2024,i,15657854049034001238,9203003603597186324,4 --trace-process-track-uuid=3190709029415796548 --mojo-platform-channel-handle=5144 /pfhostedapp:5ab9449955545dd56ca1a480e7d19e0835efdd82 /prefetch:1",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "DDF7BE7B",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.394712",
+    "details": {
+      "pid": 6152,
+      "name": "msedgewebview2.exe",
+      "cmdline": "c:\\program files (x86)\\microsoft\\edgewebview\\application\\146.0.3856.62\\msedgewebview2.exe --type=gpu-process --noerrdialogs --user-data-dir=c:\\users\\navde\\appdata\\local\\packages\\5319275a.whatsappdesktop_cv1g1gvanyjgm\\localcache\\ebwebview --webview-exe-name=whatsapp.root.exe --webview-exe-version=1.0.0 --embedded-browser-webview=1 --subproc-heap-profiling --gpu-preferences=saaaaaaaaadgaaaeaaaaaaaaaaaaagaaaaaaaaaaaaaaaaaaaaaaaaiaaaaaaaaaaaaaaaaaaaaqaaaaaaaaabaaaaaaaaaacaaaaaaaaaaiaaaaaaaaaa== --use-gl=angle --use-angle=d3d11-warp-webgl --startup-read-main-dll --metrics-shmem-handle=1896,i,17104723183247699597,2834518759506029661,262144 --field-trial-handle=2016,i,3587767870604717689,11837741964767951554,262144 --variations-seed-version --pseudonymization-salt-handle=2024,i,15657854049034001238,9203003603597186324,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=2004 /prefetch:2 /pfhostedapp:5ab9449955545dd56ca1a480e7d19e0835efdd82",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "23520351",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.483122",
+    "details": {
+      "pid": 7728,
+      "name": "chrome.exe",
+      "cmdline": "c:\\program files\\google\\chrome\\application\\chrome.exe --type=renderer --origin-trial-disabled-features=canvastextng|webassemblycustomdescriptors --no-pre-read-main-dll --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-gb --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=167 --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=3533427045 --metrics-shmem-handle=5684,i,8638451327818081212,14453429872850302082,2097152 --field-trial-handle=1848,i,12266373386037920535,9791574286142636316,262144 --variations-seed-version=20260318-010046.043000-production --pseudonymization-salt-handle=1852,i,5871951010126844387,6657139779989304180,4 --trace-process-track-uuid=3190709142797860277 --mojo-platform-channel-handle=9788 /prefetch:1",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "345CC738",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.541575",
+    "details": {
+      "pid": 8876,
+      "name": "chrome.exe",
+      "cmdline": "c:\\program files\\google\\chrome\\application\\chrome.exe --type=renderer --origin-trial-disabled-features=canvastextng|webassemblycustomdescriptors --no-pre-read-main-dll --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-gb --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=136 --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=2792758256 --metrics-shmem-handle=7672,i,5109014429564907091,17509335669269047336,2097152 --field-trial-handle=1848,i,12266373386037920535,9791574286142636316,262144 --variations-seed-version=20260318-010046.043000-production --pseudonymization-salt-handle=1852,i,5871951010126844387,6657139779989304180,4 --trace-process-track-uuid=3190709113749562958 --mojo-platform-channel-handle=6652 /prefetch:1",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "1BFA8E88",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.613903",
+    "details": {
+      "pid": 9260,
+      "name": "Code.exe",
+      "cmdline": "c:\\users\\navde\\appdata\\local\\programs\\microsoft vs code\\code.exe --type=renderer --user-data-dir=c:\\users\\navde\\appdata\\roaming\\code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --app-user-model-id=microsoft.visualstudiocode --app-path=c:\\users\\navde\\appdata\\local\\programs\\microsoft vs code\\072586267e\\resources\\app --enable-sandbox --enable-blink-features=highlightapi --max-active-webgl-contexts=32 --disable-blink-features=fontmatchingctmigration,standardizedbrowserzoom, --video-capture-use-gpu-memory-buffer --lang=en-us --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=4 --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=3634663332 --field-trial-handle=1744,i,8010653115151357189,6903514104737226865,262144 --enable-features=documentpolicyincludejscallstacksincrashreports,earlyestablishgpuchannel,enabletransparenthwndenlargement,establishgpuchannelasync --disable-features=calculatenativewinocclusion,localnetworkaccesschecks,screenaiocrenabled,sparerendererforsiteperprocess,tracesiteinstancegetprocesscreation --variations-seed-version --trace-process-track-uuid=3190708990060038890 --mojo-platform-channel-handle=3112 --vscode-window-config=vscode:88be6717-33f4-4675-806e-dcb3be12aaa0 /prefetch:1",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "E7BC689B",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.639167",
+    "details": {
+      "pid": 9528,
+      "name": "WidgetBoard.exe",
+      "cmdline": "c:\\program files\\windowsapps\\microsoftwindows.client.webexperience_526.1202.40.0_x64__cw5n1h2txyewy\\widgetboard.exe -registerprocessascomserver -servername:microsoft.windows.widgetboardserver",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "B3B41095",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.681193",
+    "details": {
+      "pid": 9972,
+      "name": "powershell.exe",
+      "cmdline": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -noexit -command try { . \"c:\\users\\navde\\appdata\\local\\programs\\microsoft vs code\\072586267e\\resources\\app\\out\\vs\\workbench\\contrib\\terminal\\common\\scripts\\shellintegration.ps1\" } catch {}",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "E242E9C1",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.707551",
+    "details": {
+      "pid": 10180,
+      "name": "StartMenuExperienceHost.exe",
+      "cmdline": "c:\\windows\\systemapps\\microsoft.windows.startmenuexperiencehost_cw5n1h2txyewy\\startmenuexperiencehost.exe -servername:fulltrustapp.appxykjsye98af63ez2annt9djke8trg8stn.mca",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "BA4B2262",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.745757",
+    "details": {
+      "pid": 10568,
+      "name": "chrome.exe",
+      "cmdline": "c:\\program files\\google\\chrome\\application\\chrome.exe --type=gpu-process --no-pre-read-main-dll --gpu-preferences=saaaaaaaaadgaaaeaaaaaaaaaaaaagaaaaaaaaaaaaaaaaaaaaaaaaiaaaaaaaaaaaaaaaaaaaaqaaaaaaaaabaaaaaaaaaacaaaaaaaaaaiaaaaaaaaaa== --use-gl=angle --use-angle=d3d11-warp-webgl --metrics-shmem-handle=1720,i,10140890618655720326,4078692475586731898,262144 --field-trial-handle=1848,i,12266373386037920535,9791574286142636316,262144 --variations-seed-version=20260318-010046.043000-production --pseudonymization-salt-handle=1852,i,5871951010126844387,6657139779989304180,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=1812 /prefetch:2",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "7B13E3C9",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.768523",
+    "details": {
+      "pid": 10652,
+      "name": "Code.exe",
+      "cmdline": "c:\\users\\navde\\appdata\\local\\programs\\microsoft vs code\\code.exe --type=utility --utility-sub-type=node.mojom.nodeservice --lang=en-us --service-sandbox-type=none --dns-result-order=ipv4first --experimental-network-inspection --inspect-port=0 --video-capture-use-gpu-memory-buffer --user-data-dir=c:\\users\\navde\\appdata\\roaming\\code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --field-trial-handle=1744,i,8010653115151357189,6903514104737226865,262144 --enable-features=documentpolicyincludejscallstacksincrashreports,earlyestablishgpuchannel,enabletransparenthwndenlargement,establishgpuchannelasync --disable-features=calculatenativewinocclusion,localnetworkaccesschecks,screenaiocrenabled,sparerendererforsiteperprocess,tracesiteinstancegetprocesscreation --variations-seed-version --trace-process-track-uuid=3190708995682289984 --mojo-platform-channel-handle=3844 /prefetch:14",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "BE7A7E1A",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.812366",
+    "details": {
+      "pid": 11116,
+      "name": "chrome.exe",
+      "cmdline": "c:\\program files\\google\\chrome\\application\\chrome.exe --type=renderer --origin-trial-disabled-features=canvastextng|webassemblycustomdescriptors --no-pre-read-main-dll --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-gb --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=31 --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=153582232 --metrics-shmem-handle=3104,i,2945179200934027831,4821044256708156369,2097152 --field-trial-handle=1848,i,12266373386037920535,9791574286142636316,262144 --variations-seed-version=20260318-010046.043000-production --pseudonymization-salt-handle=1852,i,5871951010126844387,6657139779989304180,4 --trace-process-track-uuid=3190709015360168813 --mojo-platform-channel-handle=7704 /prefetch:1",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "60C0072B",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.834729",
+    "details": {
+      "pid": 11276,
+      "name": "msedgewebview2.exe",
+      "cmdline": "c:\\program files (x86)\\microsoft\\edgewebview\\application\\146.0.3856.62\\msedgewebview2.exe --type=gpu-process --noerrdialogs --user-agent=mozilla/5.0 (windows nt 10.0; win64; x64; cortana 1.18.9.23723; 10.0.0.0.26200.8037) applewebkit/537.36 (khtml, like gecko) chrome/70.0.3538.102 safari/537.36 edge/18.26200 iswebview2/true (webview2version 146.0.3856.62) --user-data-dir=c:\\users\\navde\\appdata\\local\\packages\\microsoftwindows.client.cbs_cw5n1h2txyewy\\localstate\\ebwebview --webview-exe-name=searchhost.exe --webview-exe-version=2126.2002.40.0 --embedded-browser-webview=1 --gpu-preferences=saaaaaaaaadgaaaeaaaaaaaaaaaaagaaaqaaaaaaaaaaaaaaaaaaaaiaaaaaaaaaaaaaaaaaaaaqaaaaaaaaabaaaaaaaaaacaaaaaaaaaaiaaaaaaaaaa== --always-read-main-dll --metrics-shmem-handle=1948,i,16582784842527042697,5350449720410252101,262144 --field-trial-handle=2064,i,15606047814204091400,18438517827246080267,262144 --enable-features=msedgefluentoverlayscrollbar --disable-features=mssmartscreenprotection --variations-seed-version --pseudonymization-salt-handle=2068,i,13963536863761853060,17098262403834813314,4 --trace-process-track-uuid=3190708988185955192 --mojo-platform-channel-handle=2056 /prefetch:2 /pfhostedapp:7c276e12378ff536c0e22d80c5b2e0c8e3534c9c",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "8A2CC4F9",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.864456",
+    "details": {
+      "pid": 11424,
+      "name": "chrome.exe",
+      "cmdline": "c:\\program files\\google\\chrome\\application\\chrome.exe --type=renderer --origin-trial-disabled-features=canvastextng|webassemblycustomdescriptors --no-pre-read-main-dll --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-gb --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=46 --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=377460609 --metrics-shmem-handle=9824,i,5455089299849231700,18245397923841577974,2097152 --field-trial-handle=1848,i,12266373386037920535,9791574286142636316,262144 --variations-seed-version=20260318-010046.043000-production --pseudonymization-salt-handle=1852,i,5871951010126844387,6657139779989304180,4 --trace-process-track-uuid=3190709029415796548 --mojo-platform-channel-handle=5968 /prefetch:1",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "F00491DD",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.886996",
+    "details": {
+      "pid": 11540,
+      "name": "powershell.exe",
+      "cmdline": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -noexit -command try { . \"c:\\users\\navde\\appdata\\local\\programs\\microsoft vs code\\072586267e\\resources\\app\\out\\vs\\workbench\\contrib\\terminal\\common\\scripts\\shellintegration.ps1\" } catch {}",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "EEA72AC4",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.907108",
+    "details": {
+      "pid": 11708,
+      "name": "powershell.exe",
+      "cmdline": "c:\\windows\\system32\\windowspowershell\\v1.0\\powershell.exe -noexit -command try { . \"c:\\users\\navde\\appdata\\local\\programs\\microsoft vs code\\072586267e\\resources\\app\\out\\vs\\workbench\\contrib\\terminal\\common\\scripts\\shellintegration.ps1\" } catch {}",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "E50D7D41",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.942567",
+    "details": {
+      "pid": 12540,
+      "name": "Code.exe",
+      "cmdline": "c:\\users\\navde\\appdata\\local\\programs\\microsoft vs code\\code.exe c:\\users\\navde\\.vscode\\extensions\\ms-python.vscode-pylance-2026.1.1\\dist\\server.bundle.js --cancellationreceive=file:b917c2253c7afd8ff7803d753ed21a02c943ce9789 --node-ipc --clientprocessid=10652",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "7F9B0CFA",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:24.964750",
+    "details": {
+      "pid": 12564,
+      "name": "msedgewebview2.exe",
+      "cmdline": "c:\\program files (x86)\\microsoft\\edgewebview\\application\\146.0.3856.62\\msedgewebview2.exe --type=renderer --noerrdialogs --user-agent=mozilla/5.0 (windows nt 10.0; win64; x64; cortana 1.18.9.23723; 10.0.0.0.26200.8037) applewebkit/537.36 (khtml, like gecko) chrome/70.0.3538.102 safari/537.36 edge/18.26200 iswebview2/true (webview2version 146.0.3856.62) --user-data-dir=c:\\users\\navde\\appdata\\local\\packages\\microsoftwindows.client.cbs_cw5n1h2txyewy\\localstate\\ebwebview --webview-exe-name=searchhost.exe --webview-exe-version=2126.2002.40.0 --embedded-browser-webview=1 --video-capture-use-gpu-memory-buffer --lang=en-us --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --js-flags=--expose-gc --ms-user-locale=en_in --time-ticks-at-unix-epoch=-1773843669272603 --launch-time-ticks=19385568 --always-read-main-dll --metrics-shmem-handle=3808,i,7231200736102504589,15944031577399075911,2097152 --field-trial-handle=2064,i,15606047814204091400,18438517827246080267,262144 --enable-features=msedgefluentoverlayscrollbar --disable-features=mssmartscreenprotection --variations-seed-version --pseudonymization-salt-handle=2068,i,13963536863761853060,17098262403834813314,4 --trace-process-track-uuid=3190708990997080739 --mojo-platform-channel-handle=3816 /pfhostedapp:7c276e12378ff536c0e22d80c5b2e0c8e3534c9c /prefetch:1",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "685ED6D5",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.021306",
+    "details": {
+      "pid": 13356,
+      "name": "MicrosoftStartFeedProvider.exe",
+      "cmdline": "c:\\program files\\windowsapps\\microsoft.startexperiencesapp_1.229.1.0_x64__8wekyb3d8bbwe\\microsoftstartfeedprovider\\microsoftstartfeedprovider.exe -embedding",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "7C771087",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.052517",
+    "details": {
+      "pid": 13608,
+      "name": "Code.exe",
+      "cmdline": "c:\\users\\navde\\appdata\\local\\programs\\microsoft vs code\\code.exe --type=utility --utility-sub-type=node.mojom.nodeservice --lang=en-us --service-sandbox-type=none --video-capture-use-gpu-memory-buffer --user-data-dir=c:\\users\\navde\\appdata\\roaming\\code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --field-trial-handle=1744,i,8010653115151357189,6903514104737226865,262144 --enable-features=documentpolicyincludejscallstacksincrashreports,earlyestablishgpuchannel,enabletransparenthwndenlargement,establishgpuchannelasync --disable-features=calculatenativewinocclusion,localnetworkaccesschecks,screenaiocrenabled,sparerendererforsiteperprocess,tracesiteinstancegetprocesscreation --variations-seed-version --trace-process-track-uuid=3190708994745248135 --mojo-platform-channel-handle=3624 /prefetch:14",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "760FEEF4",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.078338",
+    "details": {
+      "pid": 14064,
+      "name": "OmenCommandCenterBackground.exe",
+      "cmdline": "c:\\program files\\windowsapps\\ad2f1837.omencommandcenter_1101.2602.10.0_x64__v10z8vjag6ke6\\omencommandcenterapp\\omencommandcenterbackground.exe",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "E881CABD",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.140616",
+    "details": {
+      "pid": 14540,
+      "name": "PhoneExperienceHost.exe",
+      "cmdline": "c:\\program files\\windowsapps\\microsoft.yourphone_1.26012.101.0_x64__8wekyb3d8bbwe\\phoneexperiencehost.exe -comserver:background -embedding",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "15441DDE",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.175715",
+    "details": {
+      "pid": 15412,
+      "name": "BlueStacksServices.exe",
+      "cmdline": "c:\\users\\navde\\appdata\\local\\programs\\bluestacks-services\\bluestacksservices.exe --type=gpu-process --user-data-dir=c:\\users\\navde\\appdata\\roaming\\bluestacks-services --gpu-preferences=uaaaaaaaaadgaaayaaaaaaaaaaaaaaaaaabgaaaaaaawaaaaaaaaaaaaaaaqaaaaaaaaaaaaaaaaaaaaaaaaaegaaaaaaaaasaaaaaaaaaayaaaaagaaabaaaaaaaaaagaaaaaaaaaaqaaaaaaaaaaaaaaaoaaaaeaaaaaaaaaabaaaadgaaaagaaaaaaaaacaaaaaaaaaa= --mojo-platform-channel-handle=1596 --field-trial-handle=1436,i,15365338235887121879,13442368367909996579,131072 --disable-features=sparerendererforsiteperprocess,winretrievesuggestionsonlyondemand /prefetch:2",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "D3441CD3",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.198673",
+    "details": {
+      "pid": 15520,
+      "name": "chrome.exe",
+      "cmdline": "c:\\program files\\google\\chrome\\application\\chrome.exe --type=renderer --origin-trial-disabled-features=canvastextng|webassemblycustomdescriptors --no-pre-read-main-dll --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-gb --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=21 --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=65925465 --metrics-shmem-handle=6908,i,18395190187514651907,14844743426538652561,2097152 --field-trial-handle=1848,i,12266373386037920535,9791574286142636316,262144 --variations-seed-version=20260318-010046.043000-production --pseudonymization-salt-handle=1852,i,5871951010126844387,6657139779989304180,4 --trace-process-track-uuid=3190709005989750323 --mojo-platform-channel-handle=6900 /prefetch:1",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "EEBE005C",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.242766",
+    "details": {
+      "pid": 15748,
+      "name": "BlueStacksServices.exe",
+      "cmdline": "c:\\users\\navde\\appdata\\local\\programs\\bluestacks-services\\bluestacksservices.exe --type=renderer --user-data-dir=c:\\users\\navde\\appdata\\roaming\\bluestacks-services --app-user-model-id=com.bluestacks.services --app-path=c:\\users\\navde\\appdata\\local\\programs\\bluestacks-services\\resources\\app.asar --enable-sandbox --first-renderer-process --lang=en-us --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=4 --time-ticks-at-unix-epoch=-1773843669264251 --launch-time-ticks=31258986 --mojo-platform-channel-handle=2640 --field-trial-handle=1436,i,15365338235887121879,13442368367909996579,131072 --disable-features=sparerendererforsiteperprocess,winretrievesuggestionsonlyondemand /prefetch:1",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "76420A65",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.265017",
+    "details": {
+      "pid": 15772,
+      "name": "CodeSetup-stable-ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb.exe",
+      "cmdline": "c:\\users\\navde\\appdata\\local\\temp\\vscode-stable-user-x64\\codesetup-stable-ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb.exe /verysilent /log /update=c:\\users\\navde\\appdata\\local\\temp\\vscode-stable-user-x64\\codesetup-stable-ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb.flag /sessionend=c:\\users\\navde\\appdata\\local\\temp\\vscode-stable-user-x64\\session-ending.flag /nocloseapplications /mergetasks=runcode,!desktopicon,!quicklaunchicon",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "74F1B07B",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.288091",
+    "details": {
+      "pid": 15776,
+      "name": "Code.exe",
+      "cmdline": "c:\\users\\navde\\appdata\\local\\programs\\microsoft vs code\\code.exe --type=utility --utility-sub-type=node.mojom.nodeservice --lang=en-us --service-sandbox-type=none --video-capture-use-gpu-memory-buffer --user-data-dir=c:\\users\\navde\\appdata\\roaming\\code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --field-trial-handle=1744,i,8010653115151357189,6903514104737226865,262144 --enable-features=documentpolicyincludejscallstacksincrashreports,earlyestablishgpuchannel,enabletransparenthwndenlargement,establishgpuchannelasync --disable-features=calculatenativewinocclusion,localnetworkaccesschecks,screenaiocrenabled,sparerendererforsiteperprocess,tracesiteinstancegetprocesscreation --variations-seed-version --trace-process-track-uuid=3190708991934122588 --mojo-platform-channel-handle=3860 /prefetch:14",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "F33F8481",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.320848",
+    "details": {
+      "pid": 15908,
+      "name": "ShellExperienceHost.exe",
+      "cmdline": "c:\\windows\\systemapps\\shellexperiencehost_cw5n1h2txyewy\\shellexperiencehost.exe -servername:app.appxtk181tbxbce2qsex02s8tw7hfxa9xb3t.mca",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "8D1855F6",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.349049",
+    "details": {
+      "pid": 16336,
+      "name": "omenmqtt.exe",
+      "cmdline": "c:\\program files\\windowsapps\\ad2f1837.omencommandcenter_1101.2602.10.0_x64__v10z8vjag6ke6\\omencommandcenterapp\\omenmqtt.exe b81f7f47-8db0-4f6c-8d51-fd39f4f84541 ruic36u36n7oej5wgnxdt9pz6wc8hska 3dhwbuezmo/axjvo4fwnpokijalqolykzfpf+7mb/n71jdlngjzbtq3hcbl6zmygvyz/jfntqvw+bblowa9wygmqvjtgzj6xamrp73zhj02t6jqbbm5ksj+u5pgxl0xoayfrj3xzyao9qboogsjnthyv6tizxy2pcri+axsbk5ulvibvtqjeblcfgqrya+bvokwe8pm6yqti5//069wagsqyw6qpx5jxejws2fsvlguhbujemlbs6h8yedle7fsj8mz5watd6tdv8s+o3xtokse3utvbainhkrc+x41rw5qhq3kmmc2jhrf6bztvlp61hw/v/w+m34egdioxcfqrdehqmkvlu/nwspfeg2s4qczwujltt/mzahxcmcibes3xfade+bhpsruqrf8fqqf3ceim/wgfkaqtkqwa2kminrjb7qqfrqhmvumpv2zcmo9cingy1kzvakncwhpooubmg3rc5fibuhy4qx36hbp/4+euezcr6fjajmxccjur5pffuecq8zilydnaoocs54aqj/fnkwiaqenwq5aakdueysbym6lztdkpuflyzpij3el62waobnatogilc/mkbqam01lmjqmi9u72pjaectxzqizjootcbpkstz22sj7jzh9az8ogatx9y4l1pfotwhmjdmq8xmflxfn/ulzaqqmmhnzubbibbd7oxqlhqhzt3ildivlgalxxoakx3jtbfrs1xrjzilbwmehwpp6zrz6nbprsax6rmv93dzpi15o8kg5jd8ipuyvjnu1cuiwhob/lzcpzzimstq0lfzw4jln+6szavytwhkrxsa/m7zvkczmzbeofr5tq/rorfk8mhtgfc/dqjqa0qx3fvec14zoclva7d8azy1pkv8yq2m2twhzb3esx3kw+lodmczxfb3t4qfw+07ylp+uqsg6uofalts7t0h/y8wultbt0re92lme/vb6/m3unreg0zyadbfad+xwnsdhep8/4gpcftzntzbn4wvmtuzcgjyempatlpzgc97tcjc4geniixmwmm3ailqkv+5kc06+px76zr8bhhfo+sgp2z0r0a3layisdj/y1ncrosczoepo2fn/i61iwxoz0wo7tv9mgrt+h4k1k8nbwz2yf8i6rwsngcvinn3qpatw1hhuoyi4r6bgs79gabom0ovsoydoe6gfjfbytl84lvqr57dvaysrpxoqzk460xqzgq3itvuedzydfx8/o7u/6mnhodjb8n1rtjhuthdzamqkdtvhcrc6bxbwe00a1ql5jzktswsw/rsuo0bhvnrlbxoanfb7bky2igglyvieuzqli2zhxglc6hsmklnuoo08vyzmswpu6b7gmt2pgdipbn4qf+1ylv8sefvkijplbe30hagf3ldm1telcykhbao+utyvz1lg1nne6q9ged1khjqyehz1amqo29kpbepdwjhclpdphxfrnfbgcm6tl0btcda1qbkb3a3x9td2141n0tj0pqflu1jhkvkzwdhciphtibd2l+yhztvcnbc0ca9kyisye/r5/ll/mebst84rochpzlg6zd3zusyddsvhm1itsn+bgyj7xfwhozckzlufzcn9dkupgnotke8gu24zzo30uwvefhsiyy/pkxm5cz0dzse5d07mmkkh0bpqqw25adiccsf571fp6y+1rnf8eiumcwzg1lqc/7mlgsu2mfbwi+sdmw4epus24wvhhy9mpr3bod8ylmgxy4z/7panvojeiugrkozmesg2ytzlk73a07ac2clg+rk6gut+ajwalpqd3koly8zk9gk4lmnbabkmhc3ckhkrfmd0yczjnjo9n4vaqddcqpw+ism/nopcaoi/9+3v1fditjup3axpuck8bcm3edojixvlb8hr8qk5sa/6ybfa78thpg1qymn+lgynn7x7knx2cpu+at7xeblsujroyhvvbawfa1goktv7kkipiqouuvw6wn/p4hqcy6ewhtaq/6cscjthumk1nyjse/cudy1dvaqmab0mpgxyvi+jccz6kl5akqp6bz6cwaw45upietsgmgydx7ccobsz8zxg1lwqz+jtn/+px0dx9up4nbbzqa1/hv1/4zc1wsqjp17+rsogizd88pccnd8ltaoazwxj5yyz8t3vtp565gh0085k2gv+jc8grcktdysssj8ifwwvulqgzaimkohbtgbshl5neni+r4w7po0m0fwjvwidfxviqanbrh2zmxybtfnxidgbpg43gtr6/tioekfkspw4n2apmvlupcxtvreobjx944ep7zzer78fblwey2hm86aet6gu2lwpgewyths4gvxmooez6bqrf8c7l8lqt0kcvmurcc6a67hes6dhjaeu2f+0uxsh2kuqtlsop1ylzr9ppyjltrujzzxobwgjqbawk3b+enm0jjf9ibmls5qhhj7ewv73fj8fg5ki4qrweq2e2pkyuyns4yjvxrxlkhm7qc627u8vlc6t9k1/vlwzkt/ortfmikyzcrkxmgpsu2ahe2o7h8chsv/g9ie4k5atcfy82d7hji9z9hyanuvun2jh6t9uc5z9rbc58gwkrmhxybuvkyo/lcg205xxslyvc9aksqxcqlxlhm/2jntqyhabg6bg4/o0jubomyhqvgtboj7/g6qqhhe5pgvvfwxlfd3/zrl3llkbikyosqq/b88hpzynrxqtwasqioq3tblqxkrtb9t8vcefyxiwrgsvjdmkbpuvwzupebf3vsjjovmos+f3c270kdylgnzi16hao2pioalnf7z6zwgwqrx3bdsa7rchtbblflf31x4vxm47vcks1aqojo4ccu0n6q+algawaoozvbx4pxsde+yaccx0vyoavyu+qtzuddofbcc3o636tol8feuuit4aea5olfl9cxbvcvoevwzefyexfkb3aekuyorpygawnfqzdt25pj/rb3jccxulpikq52pj7ebw2yxm35u8bar0p5csbtkpm1j45n9nqtbf5bqtvbc3isj7s4kuel39shd8qt3luhyh26nevsqeiymgrzkm+ztw0i45yg7h+gnajjxl9ho8dt1tdihe0eljwpogm/k9h7/saglo0uxaxvnbbevbmkyfww8mr8wrrm1lbhepf6su8xzc9jjj7tvn9m8qiaegmfkp5zhgd8uevonzl7/zxiyq30ktaos6phnaxocimk7yooljuui6hcymj1z7osogd2mw9jf0rjr8jxy1nid2dieylpssh 3dhwbuezmo/axjvo4fwnpnjaug69icj5sbzefnf39quoq5vavrm/hkjzv8h+cajvvtoevicksophbgawzbsx5s01ps9nv+18iuahers6dehvskbi/m8qryqdrp2wqjozhar1kc3qp7u6myl6oopnptecda6md09p4a5lw6zpenczye5qim304qs7rgj81i29knneqbt2aouiwvz7lk5uxpz2ksfloserot8oa4ygguxhtm/ab2q4jagt3z8cdrjuq34dnapzsukxwxqxfpi4l5wos7repu4hlbpphrhzehotp3v+qo31+sckyh2d/jem/wpfvb8kb2eazh8ra5wx9qk5pw4d8uru7myjjbjtcvp+lhe2q9/2j2guyvqrnfdgfuy6sr3hay3rmxwipnyy9n99pe6m7zoopxr5qttg8h2dtimfwhe44wthkkf4mjgb215yavulko/xhehcofqnnzx/k+9vany/thw7e4j62cbwf+shtiw8zx6bdzkgdsrhkau5ancsqc6i3qddo15wcdyryv86scyqi+69gpmfjmbv5fzuxqfbeyemfhgjxcves4x1qifuih1jepmtfpxvy4fb+azc5j0wszncuwmcbpd6iyj7wurirrdpymwvj1xeys9tzaiarqajoehsvrlblhc3j2x3swzgn3jgq9qjdc+07ual5yu23q3vztox9jl70obg0jveecgv4w8uukuizikf0u7scnaxeotvicuexvswwlktg37hp5w+kuynyd+oocxaww4sm++qhmwyvgs7pjjo+/unmfysc7lfyby/bxwdkeva3xpl2iv7xjrufzp0jfqproz4fse+g2qvdcgeegjorespydt8+j5cra23vsseefplzuuzyeezgjsgr7eq9it3iidyonz5yv0xugvqmpekttwablwe3urmdbtrmijuoo3ucp43ygyo3nu9anfwdlzqdlyukpnbbkbgakpwa1veteius+hygfyje3lidnzy0j7epnagoo0tvxc7/fwnlacm0vcht27+bfpadtaajayjmkaxcjei+mhfzhkg0dbefuskd/7zsf4e8n0kts5da8tpfzl9hfnckpq80j7su35veybyirms//hexe6dkiyeryc+10iuqp8tymvi/90tvdeun2pkw5sqpzjgoirdvw+xhbpphbgmkxnqax1sd5hvsknlapxfoecrwnx6gts2jmtj33ay/cokfu6vlv+srb5sycytk7h3nk5xijo81gydddsj2a2lmar7ld/dwdoozupud0rpqslpdrgkeaenq0jfloxvl9xucu/pyyls2ijw2jr15bp6tteidkn8s3hg5fq+xg2jjz1ekqr2x8elpjwxhokrfxs3hxfn+icjmtyafwwc4f/e+zgsmn8enjni/ljsu6blje+a1d8+lvgwnjwvy7b2ekgiefykmvdmdg1waehjwoc2xzlxicljc9uden6irpu2qebflnsl1lybh1zypadouewbklaywe3713rpidz0sjcxy5g0wqwdqme7e82c87cojtscyl0qs/jxagjugrejqktpmynceffubjoglf1rxl9va3yaj+flj+piic0dvj4bak05cyds7gz3wcw3n3yw8bu1eebvfijebbpix1z6fyae3jcbpgej594pt3j6xkfvs1l3zr0wvvflgt5l7wj7r0gxclsmzb6gwfnu/rzta9hgoegcfgoxj6efpuffpkct8q7whb2ft9ziulg3tlosyv/g4gxtrmsxsmt5hginruzfz6jnvkhsqovqeipk5omczcn3r0yzucswfgtxumykhcf1kxthpgjlhit7bnenlmep/to4t/aoyvcsnst2yllw2cwavfxpkntyzlkg89u/uk6jgyqsvevs8xw1hfcqnkxabt5xekdnlk/ns0ibu/d6os/la+omq8etg6wrpsw+9cyuup0j6dr/n/eymd4uhozwvrsjvkg35wueankyupgaojhf28llw/cajrmfezcqsntydig3p4vk37zn9h4yj559o1cv7m7uigchqe95g5q4fbzu6qlnj8d+1xx5gviutxxukbq3wiloskt6li1nkbri0poz1wb3dzoqarfnnyxawi+914e1g/+uj+r8em/ctgdbi47xqraemswajmngguh7koqhbrfow2dk/96uda1xsazf1idz48xfu9psmtlib2paru2rpm1qfgx31gjorold+qb5tqpgefej/isg6r6hrizngzucdeeb4qfezdj8kmkglih1njby6018solo8d6mkxyr+ih8nzbnoskocbbwuv84unhgdbusc23depsbetqg9srm3nsuqtium9qyg4g/4dcwtgwu6horqiwuieamfbmhm7h4rc8xuvbhdt1sj5jynhfdaakfhn1oitjfmzqfwzjyl54poblhyayjcialo5jczc8zwoax458y8tbcmx5y3zpg5f8y/l4yiiw7etvq9qwp3pjfd+knh82baqlcpswpcodlsd27ctoe1buikor5zvwcg4ruhzqvitviudzkbbinob/vvvochcqzoadiguug1lisbvb677hqq1urozcptn3eqiobulyye2+2y7xjfb8i5hjxe0rdjqh6qva4kyeyhwi/wxgit2/1jxx2akvdom0stefulapd5attaepmtgxp/cxjfdbbwh81tpprpzmsk6r4sptv9lstthb1ylxeqpdxkozsmmyfmni5jo5qs9zbu73orem+n9/cqqiq1tmz4nhx5v+m71kkcycosqu9pn8vcopo4iu0u35aphhbgasqfefozqrfpdbm+sv9gyiwgv7isyv8xxxoeemrroz9yslcmjkrff2sin2dr6ieshjjzay1uxab9udaugmpa8dikjcyegotmqnjuvkln3kvowtotj9dz2d6antsiqwhvdtw8kau3xdx+tjtt/wext2oyw1sxc3p0hwv+/a94giomukybyy442c40ryntjotxlsfp3vogcyfc+23bbtjuaq2kx5tingdawdjyii4w9nnifdwnhcc0jxh+xeq0stll4alajaxytbopp1w8yfipxv90hcwzj6bmicizkyvowae3tlsxq76tboo/sx8oqhsx+wmiaqmzwzyk8ejvelgk0t2fs6seanjyblwqrraszfxdssmywsyrdwuxxrmcefhhzbyvjlqaryuuvy+eadyo7jg8gtxuen8oo6hmq8myqlhytybvdgjarsud52vs6+iaehaqzmuyna964tpw7ajtkhomhnjcekucvmg0skqo102q8zo5mscvmlfk311yjta7z0ifch823ts5a893n54i0ad+rwk+psnqixqtk/aywgoqijps1lapnga8pksvx/f9mxws5zaggfwi+kscgznekigisxlq/zdgsof5vodahtpnblnd66ettmlpmtozcerzv40sgj4fi3znpi2iit0nvca8od8si6ehpb+mfobxpxqrpj/y0znccbjah5e2cuaup4c+uvikka3aro96rb2j0zn05g/gepjzacen6yghidjs27v6hulu9nivp1jpbsaoknv0782u22oxygzsmujsksrdal8+/+h3kbp9ccvkxpa8w/xoqvxrzfyu4ye4o1tei7pb6j96xjv8ypcrcn/qoznz0jpugdxzge9l74pnbezpbo1gge8vebt+piyspd6adbriyt1nmkgnfczqelojymvxzctbupjmzg+xikrdapjetxu1pexnyninwac6ljhr0qvumtl09npcqnwpppaxehlh6mwzt0oqk7kgfpfx7b8gkmiizu3cf4wf46dgnhak6caugvqpfhyc9mqcrw0ou/a56on8ptotlatogqy1ww3zll8ez6cuqed0nlcr3iu6moqv4ctodt1qxxvutgichdilwge27xqzr3gpbelqdbt+ubmuht2xlaeo28lrfxt7miphjffg2kbwfo9qkzlzece6n4zfkelhe9pumpchnwazlog4ogn+d1hfe81njcf6qgkjng6t5qdglxy/eal8uqjtzna4ggqbqlrcyaoy8bsqat3dw5qg7baixmtcplfxziomznssy8v0koqpc9tnlwtn/+dx2/ldbqjwghgrezvx8wqaozz+8n5nl6yejzfiwmyc/of3vyfofzlh5s9jo4u+ab6t7zwhcq3x4o6tvqln4my8tn2xey2a1nxyj5obst2oha6nakjz0b8337f20scbe0jqvn7vj78mx8ztzssdrnua/ykfz0+mus2a8e+4wifntkq5+/hem0ur9xgqf3hrr5b1bfjvpghye+hf+yhbv7kv2cgencovszuodejrh2mv9+birn0gwxtwtvkm/jbwvrnytbzuxnkankda8kwxtrlhnvp0elnxj1doenhgveupfw9m742cv69yznoz34py+nteh4tsfrpudqouawta8keydizuh+stmxn+le9nchrtaxb+yhn store",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "3B8AA723",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.384927",
+    "details": {
+      "pid": 16552,
+      "name": "Code.exe",
+      "cmdline": "c:\\users\\navde\\appdata\\local\\programs\\microsoft vs code\\code.exe --type=utility --utility-sub-type=network.mojom.networkservice --lang=en-us --service-sandbox-type=none --user-data-dir=c:\\users\\navde\\appdata\\roaming\\code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --field-trial-handle=1744,i,8010653115151357189,6903514104737226865,262144 --enable-features=documentpolicyincludejscallstacksincrashreports,earlyestablishgpuchannel,enabletransparenthwndenlargement,establishgpuchannelasync --disable-features=calculatenativewinocclusion,localnetworkaccesschecks,screenaiocrenabled,sparerendererforsiteperprocess,tracesiteinstancegetprocesscreation --variations-seed-version --trace-process-track-uuid=3190708989122997041 --mojo-platform-channel-handle=2036 /prefetch:11",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "09A964EA",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.424802",
+    "details": {
+      "pid": 17048,
+      "name": "chrome.exe",
+      "cmdline": "c:\\program files\\google\\chrome\\application\\chrome.exe --type=renderer --origin-trial-disabled-features=canvastextng|webassemblycustomdescriptors --no-pre-read-main-dll --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-gb --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=19 --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=65325003 --metrics-shmem-handle=5980,i,1865516179676803228,11299310198677284921,2097152 --field-trial-handle=1848,i,12266373386037920535,9791574286142636316,262144 --variations-seed-version=20260318-010046.043000-production --pseudonymization-salt-handle=1852,i,5871951010126844387,6657139779989304180,4 --trace-process-track-uuid=3190709004115666625 --mojo-platform-channel-handle=6420 /prefetch:1",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "3FBF91AC",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.443538",
+    "details": {
+      "pid": 17320,
+      "name": "HPSystemEventUtilityBackground.exe",
+      "cmdline": "c:\\program files\\windowsapps\\ad2f1837.hpsystemeventutility_3.2.16.0_x64__v10z8vjag6ke6\\systemeventutility\\hpsystemeventutilitybackground.exe launchedbybglauncher",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "9EA67214",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:25.462767",
+    "details": {
+      "pid": 17368,
+      "name": "CodeSetup-stable-ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb.tmp",
+      "cmdline": "c:\\users\\navde\\appdata\\local\\temp\\is-gj19a.tmp\\codesetup-stable-ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb.tmp /sl5=$430760,130004681,841216,c:\\users\\navde\\appdata\\local\\temp\\vscode-stable-user-x64\\codesetup-stable-ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb.exe /verysilent /log /update=c:\\users\\navde\\appdata\\local\\temp\\vscode-stable-user-x64\\codesetup-stable-ce099c1ed25d9eb3076c11e4a280f3eb52b4fbeb.flag /sessionend=c:\\users\\navde\\appdata\\local\\temp\\vscode-stable-user-x64\\session-ending.flag /nocloseapplications /mergetasks=runcode,!desktopicon,!quicklaunchicon",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "FDC651F6",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:36.945255",
+    "details": {
+      "pid": 6852,
+      "name": "chrome.exe",
+      "cmdline": "c:\\program files\\google\\chrome\\application\\chrome.exe --type=renderer --extension-process --origin-trial-disabled-features=canvastextng|webassemblycustomdescriptors --no-pre-read-main-dll --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-gb --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=172 --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=3744310292 --metrics-shmem-handle=7632,i,5988038077577658499,676170571640501807,2097152 --field-trial-handle=1848,i,12266373386037920535,9791574286142636316,262144 --variations-seed-version=20260318-010046.043000-production --pseudonymization-salt-handle=1852,i,5871951010126844387,6657139779989304180,4 --trace-process-track-uuid=3190709147483069522 --mojo-platform-channel-handle=1528 /prefetch:9",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "7A72C6D9",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:37.148719",
+    "details": {
+      "pid": 10252,
+      "name": "chrome.exe",
+      "cmdline": "c:\\program files\\google\\chrome\\application\\chrome.exe --type=renderer --extension-process --origin-trial-disabled-features=canvastextng|webassemblycustomdescriptors --no-pre-read-main-dll --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-gb --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=170 --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=3743762124 --metrics-shmem-handle=6540,i,16900429753057531363,481209575303955697,2097152 --field-trial-handle=1848,i,12266373386037920535,9791574286142636316,262144 --variations-seed-version=20260318-010046.043000-production --pseudonymization-salt-handle=1852,i,5871951010126844387,6657139779989304180,4 --trace-process-track-uuid=3190709145608985824 --mojo-platform-channel-handle=9096 /prefetch:9",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "942B3A40",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:37.233691",
+    "details": {
+      "pid": 13080,
+      "name": "chrome.exe",
+      "cmdline": "c:\\program files\\google\\chrome\\application\\chrome.exe --type=renderer --extension-process --origin-trial-disabled-features=canvastextng|webassemblycustomdescriptors --no-pre-read-main-dll --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-gb --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=171 --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=3743772695 --metrics-shmem-handle=2796,i,15621165005487175282,9324556969852119299,2097152 --field-trial-handle=1848,i,12266373386037920535,9791574286142636316,262144 --variations-seed-version=20260318-010046.043000-production --pseudonymization-salt-handle=1852,i,5871951010126844387,6657139779989304180,4 --trace-process-track-uuid=3190709146546027673 --mojo-platform-channel-handle=9816 /prefetch:9",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "DF16AB0B",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:53:42.790868",
+    "details": {
+      "pid": 6908,
+      "name": "msedgewebview2.exe",
+      "cmdline": "c:\\program files (x86)\\microsoft\\edgewebview\\application\\146.0.3856.62\\msedgewebview2.exe --type=renderer --noerrdialogs --user-data-dir=c:\\users\\navde\\appdata\\local\\packages\\5319275a.whatsappdesktop_cv1g1gvanyjgm\\localcache\\ebwebview --webview-exe-name=whatsapp.root.exe --webview-exe-version=1.0.0 --embedded-browser-webview=1 --subproc-heap-profiling --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-us --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=47 --js-flags=--expose-gc --ms-user-locale=en_in --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=3746943894 --ssd-no-pressure-read-main-dll --metrics-shmem-handle=1344,i,16720811388460152077,13288457766150538955,2097152 --field-trial-handle=2016,i,3587767870604717689,11837741964767951554,262144 --variations-seed-version --pseudonymization-salt-handle=2024,i,15657854049034001238,9203003603597186324,4 --trace-process-track-uuid=3190709030352838397 --mojo-platform-channel-handle=5336 /pfhostedapp:5ab9449955545dd56ca1a480e7d19e0835efdd82 /prefetch:1",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  },
+  {
+    "alert_id": "475A0104",
+    "rule_id": "PROC-001",
+    "rule_name": "Reverse Shell Detection",
+    "severity": "HIGH",
+    "risk_score": 90,
+    "description": "Detects common reverse shell tools",
+    "source_module": "ProcessMonitor",
+    "mitre_tactic": "Execution",
+    "mitre_technique": "T1059",
+    "timestamp": "2026-03-18T20:54:11.679258",
+    "details": {
+      "pid": 8484,
+      "name": "msedgewebview2.exe",
+      "cmdline": "c:\\program files (x86)\\microsoft\\edgewebview\\application\\146.0.3856.62\\msedgewebview2.exe --type=renderer --noerrdialogs --user-data-dir=c:\\users\\navde\\appdata\\local\\packages\\5319275a.whatsappdesktop_cv1g1gvanyjgm\\localcache\\ebwebview --webview-exe-name=whatsapp.root.exe --webview-exe-version=1.0.0 --embedded-browser-webview=1 --extension-process --renderer-sub-type=extension --disable-gpu-compositing --video-capture-use-gpu-memory-buffer --lang=en-us --device-scale-factor=1.25 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=48 --js-flags=--expose-gc --ms-user-locale=en_in --time-ticks-at-unix-epoch=-1773843669272604 --launch-time-ticks=3778272310 --ssd-no-pressure-read-main-dll --metrics-shmem-handle=6732,i,16634309961563766172,5786766603748742644,2097152 --field-trial-handle=2016,i,3587767870604717689,11837741964767951554,262144 --variations-seed-version --pseudonymization-salt-handle=2024,i,15657854049034001238,9203003603597186324,4 --trace-process-track-uuid=3190709031289880246 --mojo-platform-channel-handle=5140 /pfhostedapp:5ab9449955545dd56ca1a480e7d19e0835efdd82 /prefetch:9",
+      "username": "NAVDEEP\\navde",
+      "matched_rule": "nc"
+    }
+  }
+]

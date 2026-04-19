@@ -1,0 +1,261 @@
+# SecurePulse EDR - Detection Rules
+# MITRE ATT&CK mapped detection rules
+
+process_rules:
+  - id: "PROC-001"
+    name: "Reverse Shell Detection"
+    description: "Detects common reverse shell tools"
+    severity: "HIGH"
+    risk_score: 90
+    mitre_tactic: "Execution"
+    mitre_technique: "T1059"
+    patterns:
+      - "nc"
+      - "netcat"
+      - "ncat"
+      - "bash -i"
+      - "python -c"
+      - "perl -e"
+      - "ruby -rsocket"
+      - "socat"
+
+  - id: "PROC-002"
+    name: "Suspicious Enumeration Tools"
+    description: "Detects recon/enumeration tools"
+    severity: "MEDIUM"
+    risk_score: 60
+    mitre_tactic: "Discovery"
+    mitre_technique: "T1082"
+    patterns:
+      - "nmap"
+      - "masscan"
+      - "nikto"
+      - "dirb"
+      - "gobuster"
+      - "enum4linux"
+      - "linpeas"
+      - "winpeas"
+
+  - id: "PROC-003"
+    name: "Privilege Escalation Tools"
+    description: "Detects privilege escalation attempts"
+    severity: "HIGH"
+    risk_score: 85
+    mitre_tactic: "Privilege Escalation"
+    mitre_technique: "T1548"
+    patterns:
+      - "sudo -l"
+      - "chmod +s"
+      - "chown root"
+      - "passwd"
+      - "su -"
+
+  - id: "PROC-004"
+    name: "Password Cracking Tools"
+    description: "Detects password cracking utilities"
+    severity: "HIGH"
+    risk_score: 80
+    mitre_tactic: "Credential Access"
+    mitre_technique: "T1110"
+    patterns:
+      - "john"
+      - "hashcat"
+      - "hydra"
+      - "medusa"
+      - "crunch"
+
+  - id: "PROC-005"
+    name: "Crypto Miner Detection"
+    description: "Detects cryptocurrency mining activity"
+    severity: "MEDIUM"
+    risk_score: 70
+    mitre_tactic: "Impact"
+    mitre_technique: "T1496"
+    patterns:
+      - "xmrig"
+      - "minerd"
+      - "cpuminer"
+      - "ethminer"
+      - "cgminer"
+
+network_rules:
+  - id: "NET-001"
+    name: "Suspicious Port Activity"
+    description: "Detects connections on known malicious/backdoor ports"
+    severity: "HIGH"
+    risk_score: 85
+    mitre_tactic: "Command and Control"
+    mitre_technique: "T1571"
+    suspicious_ports:
+      - 4444    # Metasploit default
+      - 4445    # Metasploit alternate
+      - 1337    # Common backdoor
+      - 31337   # Elite/Back Orifice
+      - 6666    # IRC/botnet
+      - 6667    # IRC/botnet
+      - 9999    # Common RAT
+      - 8888    # Common backdoor
+      - 5555    # ADB/Android debug
+      - 2222    # Alternate SSH
+      - 12345   # NetBus
+      - 27374   # SubSeven
+      - 65535   # Common backdoor
+
+  - id: "NET-002"
+    name: "High Port Count Connection"
+    description: "Unusual number of outbound connections"
+    severity: "MEDIUM"
+    risk_score: 55
+    mitre_tactic: "Exfiltration"
+    mitre_technique: "T1041"
+    threshold: 50
+
+file_rules:
+  - id: "FILE-001"
+    name: "Ransomware Behavior"
+    description: "Rapid mass file modifications/creations"
+    severity: "CRITICAL"
+    risk_score: 95
+    mitre_tactic: "Impact"
+    mitre_technique: "T1486"
+    threshold: 20           # files modified in window
+    time_window: 10         # seconds
+    suspicious_extensions:
+      - ".locked"
+      - ".encrypted"
+      - ".enc"
+      - ".crypt"
+      - ".crypted"
+      - ".crypto"
+      - ".pays"
+      - ".wncry"
+      - ".wnry"
+      - ".wcry"
+      - ".ransom"
+
+  - id: "FILE-002"
+    name: "Sensitive File Access"
+    description: "Access to sensitive system files"
+    severity: "HIGH"
+    risk_score: 80
+    mitre_tactic: "Credential Access"
+    mitre_technique: "T1552"
+    sensitive_paths:
+      - "/etc/passwd"
+      - "/etc/shadow"
+      - "/etc/sudoers"
+      - "/root/.ssh"
+      - "/.bash_history"
+      - "/etc/crontab"
+
+  - id: "FILE-003"
+    name: "Script Dropper Detection"
+    description: "Executable or script created in temp directory"
+    severity: "MEDIUM"
+    risk_score: 65
+    mitre_tactic: "Execution"
+    mitre_technique: "T1059"
+    watch_dirs:
+      - "/tmp"
+      - "/var/tmp"
+    suspicious_extensions:
+      - ".sh"
+      - ".py"
+      - ".pl"
+      - ".rb"
+      - ".elf"
+      - ".out"
+
+log_rules:
+  - id: "LOG-001"
+    name: "SQL Injection Attempt"
+    description: "Detects SQL injection patterns in logs"
+    severity: "HIGH"
+    risk_score: 80
+    mitre_tactic: "Initial Access"
+    mitre_technique: "T1190"
+    patterns:
+      - "' OR '1'='1"
+      - "' OR 1=1"
+      - "UNION SELECT"
+      - "union select"
+      - "DROP TABLE"
+      - "drop table"
+      - "INSERT INTO"
+      - "'; DROP"
+      - "1=1--"
+      - "' --"
+      - "xp_cmdshell"
+      - "EXEC("
+      - "EXECUTE("
+      - "WAITFOR DELAY"
+
+  - id: "LOG-002"
+    name: "XSS Attempt"
+    description: "Detects Cross-Site Scripting patterns"
+    severity: "MEDIUM"
+    risk_score: 65
+    mitre_tactic: "Initial Access"
+    mitre_technique: "T1190"
+    patterns:
+      - "<script"
+      - "</script>"
+      - "javascript:"
+      - "onerror="
+      - "onload="
+      - "onclick="
+      - "alert("
+      - "document.cookie"
+      - "eval("
+      - "fromCharCode"
+
+  - id: "LOG-003"
+    name: "Brute Force Attack"
+    description: "Multiple failed authentication attempts"
+    severity: "HIGH"
+    risk_score: 75
+    mitre_tactic: "Credential Access"
+    mitre_technique: "T1110"
+    failure_patterns:
+      - "Failed password"
+      - "authentication failure"
+      - "Invalid user"
+      - "Failed login"
+      - "FAILED LOGIN"
+      - "incorrect password"
+    threshold: 5
+    time_window: 60         # seconds
+
+  - id: "LOG-004"
+    name: "Directory Traversal"
+    description: "Detects path traversal attempts"
+    severity: "HIGH"
+    risk_score: 75
+    mitre_tactic: "Initial Access"
+    mitre_technique: "T1190"
+    patterns:
+      - "../"
+      - "..%2F"
+      - "%2e%2e%2f"
+      - "..../"
+      - "/etc/passwd"
+      - "/etc/shadow"
+      - "..\\..\\windows"
+
+port_rules:
+  - id: "PORT-001"
+    name: "Unexpected Open Port"
+    description: "Port open that is not in the whitelist"
+    severity: "MEDIUM"
+    risk_score: 50
+    mitre_tactic: "Defense Evasion"
+    mitre_technique: "T1205"
+    allowed_ports:
+      - 22    # SSH
+      - 80    # HTTP
+      - 443   # HTTPS
+      - 53    # DNS
+      - 25    # SMTP
+      - 8080  # HTTP Alt
+      - 3000  # Dev server
+      - 5000  # Flask
